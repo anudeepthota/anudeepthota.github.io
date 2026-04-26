@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ['main']
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -30,6 +31,12 @@ jobs:
         run: |
           npm ci
           npm run build
+
+      - name: Verify production bundle (not dev index.html)
+        run: |
+          test -f dist/index.html
+          grep -q 'src="/assets/index-' dist/index.html || (echo "dist/index.html missing hashed JS bundle" && exit 1)
+          ! grep -q '/src/main.tsx' dist/index.html || (echo "dist still references dev /src/main.tsx — build misconfigured" && exit 1)
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -42,6 +42,26 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      keyframes: {
+        twinkle: {
+          '0%, 100%': { opacity: '0.12', transform: 'scale(0.9)' },
+          '50%': { opacity: '0.45', transform: 'scale(1)' },
+        },
+        'shimmer-slide': {
+          '0%': { transform: 'translateX(-140%) skewX(-14deg)' },
+          '100%': { transform: 'translateX(260%) skewX(-14deg)' },
+        },
+        'text-pulse-soft': {
+          '0%, 100%': { opacity: '0.9' },
+          '50%': { opacity: '1' },
+        },
+      },
+      animation: {
+        twinkle: 'twinkle 3.8s ease-in-out infinite',
+        'twinkle-slow': 'twinkle 6.5s ease-in-out infinite',
+        'shimmer-slide': 'shimmer-slide 14s ease-in-out infinite',
+        'text-pulse-soft': 'text-pulse-soft 9s ease-in-out infinite',
+      },
     },
   },
   plugins: [],

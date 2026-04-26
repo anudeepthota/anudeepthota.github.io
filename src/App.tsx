@@ -1,3 +1,4 @@
+import { SparkleField } from '@/components/SparkleField'
 import { GradientDots } from '@/components/ui/gradient-dots'
 import { Nav } from '@/components/Nav'
 import { About } from '@/sections/About'
@@ -39,6 +40,7 @@ export default function App() {
           colorCycleDuration={14}
         />
       </div>
+      <SparkleField />
       <a
         href="#main"
         className="absolute left-[-9999px] top-0 z-[100] rounded-md bg-accent px-4 py-2 text-sm font-medium text-accent-foreground shadow focus:left-4 focus:top-4"

@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowDown, Download, Mail } from 'lucide-react'
+import { HeroShimmerName } from '@/components/HeroShimmerName'
 import { Button } from '@/components/ui/button'
 import { person } from '@/data/site'
 
@@ -34,10 +35,14 @@ export function Hero() {
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduced ? 0 : 0.1 }}
           >
-            {person.name}
+            <HeroShimmerName>{person.name}</HeroShimmerName>
           </motion.h1>
           <motion.p
-            className="mt-2 text-lg font-medium text-foreground/85 sm:text-xl"
+            className={
+              reduced
+                ? 'mt-2 text-lg font-medium text-foreground/85 sm:text-xl'
+                : 'mt-2 animate-text-pulse-soft text-lg font-medium text-foreground/85 sm:text-xl'
+            }
             initial={reduced ? undefined : { opacity: 0, y: 16 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduced ? 0 : 0.16 }}
