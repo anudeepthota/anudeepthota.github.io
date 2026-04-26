@@ -79,7 +79,7 @@ export default function App() {
             aria-label="Portrait and skills"
           >
             <div className="sticky top-28 space-y-10 border-l border-border/60 pb-16 pl-6 md:pl-7 lg:pl-8">
-              <HeroPortrait />
+              <HeroPortrait variant="rail" />
               <Skills variant="rail" />
             </div>
           </aside>
