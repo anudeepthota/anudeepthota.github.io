@@ -8,23 +8,27 @@ type HeroShimmerNameProps = {
 }
 
 /**
- * Slow shine pass over display text (blend mode, low opacity).
- * Disabled when `prefers-reduced-motion: reduce`.
+ * Animated gradient fill + soft glow on the display name.
+ * Disabled when `prefers-reduced-motion: reduce` (plain foreground text).
  */
 export function HeroShimmerName({ children, className }: HeroShimmerNameProps) {
   const reduced = useReducedMotion()
 
+  if (reduced) {
+    return <span className={cn('inline-block text-foreground', className)}>{children}</span>
+  }
+
   return (
     <span className={cn('relative inline-block', className)}>
-      <span className="relative">{children}</span>
-      {!reduced ? (
-        <span
-          className="pointer-events-none absolute inset-0 overflow-hidden rounded-sm"
-          aria-hidden
-        >
-          <span className="absolute inset-y-[-25%] left-0 w-[42%] bg-gradient-to-r from-transparent via-white/35 to-transparent opacity-[0.28] mix-blend-soft-light blur-[1px] animate-shimmer-slide" />
-        </span>
-      ) : null}
+      <span
+        className={cn(
+          'relative inline-block bg-[length:280%_auto] bg-clip-text text-transparent',
+          'bg-gradient-to-r from-sky-300 via-fuchsia-300 via-amber-200 to-sky-300',
+          'animate-name-aurora',
+        )}
+      >
+        {children}
+      </span>
     </span>
   )
 }

@@ -51,10 +51,34 @@ export default {
           '0%, 100%': { opacity: '0.9' },
           '50%': { opacity: '1' },
         },
+        /** Hero name: shifting gradient + glow (GPU-friendly) */
+        'name-aurora': {
+          '0%': {
+            backgroundPosition: '0% 50%',
+            filter:
+              'drop-shadow(0 0 10px rgb(56 189 248 / 0.45)) drop-shadow(0 0 26px rgb(168 85 247 / 0.28))',
+          },
+          '33%': {
+            backgroundPosition: '50% 50%',
+            filter:
+              'drop-shadow(0 0 16px rgb(192 132 252 / 0.55)) drop-shadow(0 0 32px rgb(251 191 36 / 0.3))',
+          },
+          '66%': {
+            backgroundPosition: '100% 50%',
+            filter:
+              'drop-shadow(0 0 12px rgb(251 191 36 / 0.4)) drop-shadow(0 0 28px rgb(56 189 248 / 0.35))',
+          },
+          '100%': {
+            backgroundPosition: '0% 50%',
+            filter:
+              'drop-shadow(0 0 10px rgb(56 189 248 / 0.45)) drop-shadow(0 0 26px rgb(168 85 247 / 0.28))',
+          },
+        },
       },
       animation: {
         'shimmer-slide': 'shimmer-slide 14s ease-in-out infinite',
         'text-pulse-soft': 'text-pulse-soft 9s ease-in-out infinite',
+        'name-aurora': 'name-aurora 9s ease-in-out infinite',
       },
     },
   },
