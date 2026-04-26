@@ -1,6 +1,5 @@
 import { Reveal } from '@/components/Reveal'
 import { Section } from '@/components/Section'
-import { education, graduateAppointments } from '@/data/site'
 
 export function About() {
   return (
@@ -67,36 +66,6 @@ export function About() {
                   <span>AI-assisted workflows where they reduce toil without hiding risk.</span>
                 </li>
               </ul>
-            </div>
-            <div className="rounded-2xl border border-border/80 bg-card/60 p-6 shadow-card backdrop-blur-sm">
-              <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground sm:text-[0.8125rem]">
-                Education
-              </h3>
-              <ul className="mt-4 space-y-5">
-                {education.map((e) => (
-                  <li key={e.school} className="border-b border-border/60 pb-4 last:border-0 last:pb-0">
-                    <p className="text-lg font-semibold text-foreground">{e.school}</p>
-                    <p className="text-sm text-muted-foreground">{e.location}</p>
-                    <p className="mt-1 text-base text-foreground/90">{e.degree}</p>
-                    <p className="text-sm text-muted-foreground">{e.dates}</p>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6 border-t border-border/60 pt-5">
-                <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
-                  During my M.S. (Texas State)
-                </h4>
-                <ul className="mt-3 space-y-3 text-base text-muted-foreground">
-                  {graduateAppointments.map((g) => (
-                    <li key={`${g.role}-${g.dates}`}>
-                      <p className="font-medium text-foreground/95">{g.role}</p>
-                      <p className="text-xs text-muted-foreground">
-                        {g.org} · {g.location} · {g.dates}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
           </div>
         </Reveal>

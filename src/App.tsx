@@ -3,6 +3,7 @@ import { GradientDots } from '@/components/ui/gradient-dots'
 import { HeroPortrait } from '@/components/HeroPortrait'
 import { Nav } from '@/components/Nav'
 import { About } from '@/sections/About'
+import { Education } from '@/sections/Education'
 import { Certifications } from '@/sections/Certifications'
 import { Contact } from '@/sections/Contact'
 import { Experience } from '@/sections/Experience'
@@ -68,6 +69,7 @@ export default function App() {
             <div className="md:hidden">
               <Skills variant="full" containWidth={false} />
             </div>
+            <Education />
             <About />
             <Certifications />
             <Projects />

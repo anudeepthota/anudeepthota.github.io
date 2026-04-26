@@ -261,6 +261,7 @@ export const navLinks = [
   { href: '#experience', label: 'Experience' },
   /** Desktop: `#skills` = sticky rail under portrait. Mobile: full-width panel id */
   { href: '#skills', mobileHref: '#skills-panel', label: 'Skills' },
+  { href: '#education', label: 'Education' },
   { href: '#about', label: 'About' },
   { href: '#projects', label: 'Projects' },
   { href: '#certifications', label: 'Certifications' },
