@@ -4,10 +4,33 @@ import { useId, useState } from 'react'
 import { Reveal } from '@/components/Reveal'
 import { Section } from '@/components/Section'
 import { cn } from '@/lib/utils'
-import type { ExperienceEntry } from '@/data/site'
+import type { ExperienceEntry, ExperienceHighlight } from '@/data/site'
 import { experience } from '@/data/site'
 
 const HIGHLIGHT_PREVIEW = 4
+
+function HighlightRow({ item }: { item: ExperienceHighlight }) {
+  return (
+    <div className="flex gap-3.5">
+      <span className="mt-2 size-1 shrink-0 rounded-full bg-accent/80" aria-hidden />
+      <div className="min-w-0 flex-1 space-y-2">
+        <p className="text-[1.0625rem] leading-relaxed text-foreground/88 sm:text-base">{item.text}</p>
+        {item.metrics && item.metrics.length > 0 ? (
+          <div className="flex flex-wrap gap-1.5">
+            {item.metrics.map((m) => (
+              <span
+                key={m}
+                className="inline-flex rounded-md border border-accent/30 bg-accent/[0.12] px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-accent"
+              >
+                {m}
+              </span>
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </div>
+  )
+}
 
 function ExperienceJobCard({ job }: { job: ExperienceEntry }) {
   const reduced = useReducedMotion()
@@ -22,14 +45,14 @@ function ExperienceJobCard({ job }: { job: ExperienceEntry }) {
     <motion.li
       layout
       className={cn(
-        'relative rounded-2xl border border-border/80 bg-card/50 p-6 shadow-card backdrop-blur-sm sm:p-8',
-        'transition-[border-color,box-shadow] duration-300 ease-out',
-        'hover:border-accent/30 hover:shadow-lg hover:shadow-accent/[0.06]',
+        'relative rounded-2xl border border-border/80 bg-card/55 p-7 shadow-card backdrop-blur-sm sm:p-9',
+        'transition-[border-color,box-shadow] duration-200 ease-out',
+        'hover:border-accent/35 hover:shadow-lg hover:shadow-accent/[0.08]',
       )}
-      whileHover={reduced ? undefined : { y: -3 }}
-      transition={{ type: 'spring', stiffness: 420, damping: 28 }}
+      whileHover={reduced ? undefined : { y: -3, scale: 1.01 }}
+      transition={{ type: 'spring', stiffness: 420, damping: 26 }}
     >
-      <div className="absolute left-6 top-0 hidden h-px w-12 bg-gradient-to-r from-accent/60 to-transparent sm:block" />
+      <div className="absolute left-7 top-0 hidden h-px w-12 bg-gradient-to-r from-accent/60 to-transparent sm:block" />
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h3 className="text-xl font-semibold tracking-tight text-foreground sm:text-[1.35rem]">
@@ -43,12 +66,12 @@ function ExperienceJobCard({ job }: { job: ExperienceEntry }) {
         </p>
       </div>
       {job.blurb ? (
-        <p className="mt-4 text-base leading-relaxed text-foreground/90">{job.blurb}</p>
+        <p className="mt-4 max-w-prose text-base leading-relaxed text-foreground/90">{job.blurb}</p>
       ) : null}
 
       <ul
         id={listId}
-        className="mt-5 space-y-2.5 border-t border-border/60 pt-5 text-base leading-relaxed text-muted-foreground"
+        className="mt-6 space-y-4 border-t border-border/60 pt-6 text-muted-foreground sm:space-y-4"
       >
         <AnimatePresence initial={false} mode="popLayout">
           {visible.map((h, idx) => (
@@ -59,10 +82,8 @@ function ExperienceJobCard({ job }: { job: ExperienceEntry }) {
               animate={{ opacity: 1, y: 0 }}
               exit={reduced ? undefined : { opacity: 0, y: -4 }}
               transition={{ duration: reduced ? 0 : 0.22, ease: [0.22, 1, 0.36, 1] }}
-              className="flex gap-3"
             >
-              <span className="mt-2 size-1 shrink-0 rounded-full bg-accent/80" aria-hidden />
-              <span>{h}</span>
+              <HighlightRow item={h} />
             </motion.li>
           ))}
         </AnimatePresence>
@@ -71,7 +92,7 @@ function ExperienceJobCard({ job }: { job: ExperienceEntry }) {
       {needsToggle ? (
         <button
           type="button"
-          className="mt-4 inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-accent transition-colors hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="mt-5 inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-sm font-medium text-accent transition-colors duration-200 hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           aria-expanded={expanded}
           aria-controls={listId}
           onClick={() => setExpanded((v) => !v)}
@@ -99,11 +120,11 @@ export function Experience() {
       id="experience"
       eyebrow="Timeline"
       title="Experience"
-      description="Newest first—hover a card for emphasis; long roles expand for full highlights. The résumé PDF stays the source of truth."
+      description="Outcome-first highlights—metrics where they matter. Expand long roles for detail; the résumé PDF remains the full record."
       containWidth={false}
       className="pt-8 pb-16 sm:pt-10 sm:pb-24"
     >
-      <ol className="space-y-7 sm:space-y-8">
+      <ol className="space-y-8 sm:space-y-10">
         {experience.map((job, i) => (
           <Reveal key={`${job.company}-${job.role}-${job.dates}`} delay={i * 0.04}>
             <ExperienceJobCard job={job} />

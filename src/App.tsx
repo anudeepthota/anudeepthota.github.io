@@ -2,6 +2,7 @@ import { SparklesCore } from '@/components/ui/sparkles'
 import { GradientDots } from '@/components/ui/gradient-dots'
 import { HeroPortrait } from '@/components/HeroPortrait'
 import { Nav } from '@/components/Nav'
+import { StickyResumeCta } from '@/components/StickyResumeCta'
 import { About } from '@/sections/About'
 import { Education } from '@/sections/Education'
 import { Certifications } from '@/sections/Certifications'
@@ -30,12 +31,12 @@ export default function App() {
         aria-hidden
       />
       <div
-        className="pointer-events-none fixed inset-0 -z-10 bg-[length:48px_48px] bg-grid-fade opacity-[0.07]"
+        className="pointer-events-none fixed inset-0 -z-10 bg-[length:48px_48px] bg-grid-fade opacity-[0.04]"
         aria-hidden
       />
       <div className="pointer-events-none fixed inset-0 -z-[9] overflow-hidden" aria-hidden>
         <GradientDots
-          className="opacity-[0.055]"
+          className="opacity-[0.035]"
           dotSize={5}
           spacing={16}
           duration={48}
@@ -48,10 +49,10 @@ export default function App() {
           background="transparent"
           minSize={0.35}
           maxSize={1.15}
-          particleDensity={85}
+          particleDensity={62}
           className="h-full min-h-dvh w-full"
           particleColor="#e8eef8"
-          speed={2.5}
+          speed={2.1}
         />
       </div>
       <a
@@ -63,7 +64,11 @@ export default function App() {
       <Nav />
       <main id="main" className="relative z-10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 md:grid md:grid-cols-12 md:gap-x-8 md:items-start lg:gap-x-10">
-          <div className="min-w-0 md:col-span-8">
+          <div className="relative min-w-0 md:col-span-8">
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 -z-[1] hidden min-h-[320px] bg-gradient-to-b from-card/40 via-transparent to-transparent md:block"
+              aria-hidden
+            />
             <Hero />
             <Experience />
             <div className="md:hidden">
@@ -93,6 +98,7 @@ export default function App() {
           </aside>
         </div>
       </main>
+      <StickyResumeCta />
       <footer className="relative z-10 border-t border-border/80 py-12 text-center text-sm text-muted-foreground">
         <p className="mx-auto max-w-md leading-relaxed">
           © {new Date().getFullYear()} Anudeep Thota. Personal site: React, TypeScript, Tailwind CSS,

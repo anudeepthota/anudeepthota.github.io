@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { Check } from 'lucide-react'
 import { HeroPortrait } from '@/components/HeroPortrait'
 import { HeroShimmerName } from '@/components/HeroShimmerName'
 import { ProfileIconLinks } from '@/components/ProfileIconLinks'
@@ -18,7 +19,7 @@ export function Hero() {
         aria-hidden
       />
       <div className="relative flex w-full flex-col gap-7 sm:gap-8 md:px-0">
-        <div className="min-w-0 flex-1 lg:max-w-[min(100%,36rem)] xl:max-w-xl">
+        <div className="min-w-0 flex-1 lg:max-w-[min(100%,38rem)] xl:max-w-2xl">
           <motion.p
             className="text-xs font-bold uppercase tracking-[0.28em] text-accent"
             initial={reduced ? undefined : { opacity: 0, y: 8 }}
@@ -39,37 +40,59 @@ export function Hero() {
           <motion.p
             className={
               reduced
-                ? 'mt-1.5 text-lg font-medium text-foreground/85 sm:text-xl'
-                : 'mt-1.5 animate-text-pulse-soft text-lg font-medium text-foreground/85 sm:text-xl'
+                ? 'mt-2 text-lg font-medium text-foreground/80 sm:text-xl'
+                : 'mt-2 animate-text-pulse-soft text-lg font-medium text-foreground/80 sm:text-xl'
             }
             initial={reduced ? undefined : { opacity: 0, y: 16 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduced ? 0 : 0.16 }}
+            transition={{ ...transition, delay: reduced ? 0 : 0.14 }}
           >
             {person.title}
           </motion.p>
+
           <motion.p
-            className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-[1.0625rem]"
-            initial={reduced ? undefined : { opacity: 0, y: 16 }}
-            animate={reduced ? undefined : { opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduced ? 0 : 0.22 }}
-          >
-            {person.tagline}
-          </motion.p>
-          <motion.p
-            className="mt-3 max-w-xl text-base leading-relaxed text-foreground/80 sm:text-[1.0625rem]"
+            className="mt-4 max-w-xl text-lg font-semibold leading-snug tracking-tight text-foreground sm:text-xl"
             initial={reduced ? undefined : { opacity: 0, y: 14 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduced ? 0 : 0.26 }}
+            transition={{ ...transition, delay: reduced ? 0 : 0.18 }}
           >
-            {person.skillsHighlight}
+            {person.valueProposition}
+          </motion.p>
+
+          <motion.ul
+            className="mt-5 max-w-xl space-y-2.5 text-[0.9375rem] leading-relaxed text-muted-foreground sm:text-base"
+            initial={reduced ? undefined : { opacity: 0, y: 12 }}
+            animate={reduced ? undefined : { opacity: 1, y: 0 }}
+            transition={{ ...transition, delay: reduced ? 0 : 0.22 }}
+            aria-label="Selected impact"
+          >
+            {person.impactBullets.map((line) => (
+              <li key={line} className="flex gap-2.5">
+                <span
+                  className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent"
+                  aria-hidden
+                >
+                  <Check className="size-3.5 stroke-[2.5]" />
+                </span>
+                <span className="text-foreground/85">{line}</span>
+              </li>
+            ))}
+          </motion.ul>
+
+          <motion.p
+            className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-[0.9375rem]"
+            initial={reduced ? undefined : { opacity: 0 }}
+            animate={reduced ? undefined : { opacity: 1 }}
+            transition={{ ...transition, delay: reduced ? 0 : 0.28 }}
+          >
+            {person.credibilityLine}
           </motion.p>
 
           <motion.div
             className="mt-6"
             initial={reduced ? undefined : { opacity: 0, y: 12 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduced ? 0 : 0.3 }}
+            transition={{ ...transition, delay: reduced ? 0 : 0.32 }}
           >
             <ProfileIconLinks />
           </motion.div>

@@ -2,12 +2,17 @@ export const person = {
   name: 'Anudeep Thota',
   /** Matches LinkedIn headline (SDET) and full role at Q2 */
   title: 'Software Development Engineer in Test (SDET)',
-  /** Hero: trajectory and scope—complements the Skills section */
-  tagline:
-    'SDET at Q2 (Austin)—commercial digital banking QE: WebDriver- and Appium-backed suites with Page Object layering, plus REST-side coverage, gating releases on regression across coupled product surfaces. CI executed on Jenkins and GitLab (Groovy job logic), Dockerized agents, Nomad-scheduled workloads, and AWS-hosted QA estates. Previously: hybrid Java/Selenium/Appium harnesses with device-farm and grid parallelism at Mast Global (retail/HR); UI and API automation for ACA-constrained healthcare billing flows at Cognizant.',
-  /** Hero: concrete stack and differentiators */
-  skillsHighlight:
-    'Stack depth: Python, Java, Groovy; Selenium WebDriver, Appium, ReadyAPI/Postman for contract and integration checks; TestNG and Maven as test runners under versioned CI. Co-architected TestMate AI—embedding-backed, LLM-driven synthesis of executable tests. Engineering workflow layers in Claude, Cursor, ChatGPT, and MCP alongside risk-ranked regression design, backlog-driven test ownership, and SDLC/STLC evidence for release sign-off.',
+  /** Hero: recruiter-first value prop (outcome-led, not tool-led) */
+  valueProposition:
+    'I build scalable test automation systems that reduce regression risk and unblock fast, reliable releases.',
+  /** 3 scannable proof points for the hero */
+  impactBullets: [
+    'Scaled automated regression across multiple commercial-banking surfaces before production deploys.',
+    'Raised regression coverage ~65% and cut manual effort ~40% in prior high-volume automation roles.',
+    'CI/CD validation across dev, staging, and production-like environments on Jenkins, GitLab, and AWS-backed QA stacks.',
+  ] as const,
+  /** One-line credibility (replaces long technical hero paragraphs) */
+  credibilityLine: 'SDET at Q2 · Commercial digital banking · Austin, TX',
   phone: '+1 (469) 834-7396',
   email: 'info2anudeepthota@gmail.com',
   linkedin: 'https://www.linkedin.com/in/anudeepthota/',
@@ -129,6 +134,12 @@ export const skillGroups = [
   },
 ] as const
 
+/** Impact line + optional metric chips for scanning */
+export type ExperienceHighlight = {
+  readonly text: string
+  readonly metrics?: readonly string[]
+}
+
 export type ExperienceEntry = {
   company: string
   location: string
@@ -136,7 +147,7 @@ export type ExperienceEntry = {
   dates: string
   /** One sentence under the role header—sets context before bullets */
   blurb?: string
-  highlights: string[]
+  highlights: readonly ExperienceHighlight[]
 }
 
 export const experience: ExperienceEntry[] = [
@@ -146,18 +157,42 @@ export const experience: ExperienceEntry[] = [
     role: 'Software Development Engineer in Test — Commercial Otters, Quality Enablement',
     dates: 'June 2021 – Present',
     blurb:
-      'Hands-on automation for commercial digital banking, regression across interconnected platforms, and enablement for teams shipping on AWS-backed QA stacks.',
+      'Owns release-grade automation for commercial digital banking—UI, API, and mobile—with regression across coupled platforms and CI/CD on AWS-backed QA.',
     highlights: [
-      'Lead UI automation for Commercial Otters (ETMS, bulk recipient approval, contract wires), extending Page Object patterns for maintainable releases.',
-      'Own regression validation across UUX, HQ, Ardent, and Tecton before deployments; plan test strategy early with Scrum teams.',
-      'Validated end-to-end ACH reversal across UUX, ACH automation, and PIQS; documented QA configuration for repeatable runs.',
-      'Co-architected TestMate AI—Amazon Titan and Claude Sonnet turn requirements and code embeddings into executable tests—adopted across Q2.',
-      'ReadyAPI mock services for Okta inbound SSO and Consumer Payments (BillPay, iPay) for isolated integration testing.',
-      'Q2 ATF Python automation across UI, API, and mobile; Docker-based Selenium Grid and Selenium Manager for parallel, reliable runs.',
-      'Jenkins CI/CD across dev, staging, and production-like environments; supported QA migration to AWS with Nomad and HCL-driven changes.',
-      'Evolved Q2 Contraster (Python upgrade validation) with S3-backed configuration for Implementation teams.',
-      'Led stack migration from Carbon to FIC: impact analysis, Jenkins / Q2 Insight API / FIC QA updates, and enablement sessions.',
-      'Improved Appium stability on iOS and Android; brown-bags on Page Factory and “automation goalie” support for partner teams.',
+      {
+        text: 'Lead UI automation for commercial flows (ETMS, wires, bulk approvals) using Page Objects so teams ship predictable, maintainable releases.',
+        metrics: ['Release gate'],
+      },
+      {
+        text: 'Own regression across interconnected digital banking surfaces before deploy; partner with Scrum teams on strategy early in the cycle.',
+        metrics: ['Multi-platform'],
+      },
+      {
+        text: 'Validated end-to-end ACH and money-movement paths across linked systems; documented QA configs so runs stay reproducible.',
+      },
+      {
+        text: 'Co-architected TestMate AI—embeddings and LLMs turn requirements and code context into executable tests.',
+        metrics: ['Org-wide adoption'],
+      },
+      {
+        text: 'Shipped ReadyAPI mocks for Okta SSO and consumer payments so teams test integrations in isolation without blocking environments.',
+      },
+      {
+        text: 'Extended Q2 ATF (Python) across UI, API, and mobile with Dockerized Selenium Grid for parallel, reliable execution.',
+      },
+      {
+        text: 'Operated Jenkins and GitLab pipelines across dev, staging, and prod-like stacks; supported QA migration to AWS with Nomad and HCL.',
+        metrics: ['3+ env tiers'],
+      },
+      {
+        text: 'Evolved Q2 Contraster for upgrade validation with centralized S3-backed config—less friction for Implementation teams.',
+      },
+      {
+        text: 'Led Carbon→FIC migration support: impact analysis, pipeline and API updates, and enablement for dependent teams.',
+      },
+      {
+        text: 'Hardened Appium on iOS and Android; ran enablement on Page Factory and “automation goalie” support for partner teams.',
+      },
     ],
   },
   {
@@ -167,10 +202,19 @@ export const experience: ExperienceEntry[] = [
     dates: 'May 2020 – Dec 2020',
     blurb: 'Visual regression, Jenkins integration, and mobile POCs inside the Q2 automation ecosystem.',
     highlights: [
-      'Added Needle-based visual regression to Q2 ATF (Python) for automated UI consistency.',
-      'Integrated visual suites into Jenkins with Groovy for dynamic triggers and parallel runs.',
-      'Mobile visual comparison POC with Appium and Kobiton (iOS and Android).',
-      'Centralized automation repository for SSO adapter validation (Billpay, iPay, PayLynx).',
+      {
+        text: 'Added Needle-based visual regression to Q2 ATF so UI drift is caught automatically instead of in late manual passes.',
+        metrics: ['Visual QA'],
+      },
+      {
+        text: 'Wired visual suites into Jenkins with Groovy for dynamic triggers and parallel runs—faster feedback on every build.',
+      },
+      {
+        text: 'Delivered a mobile visual comparison POC (Appium + Kobiton) proving feasibility for iOS and Android.',
+      },
+      {
+        text: 'Centralized SSO adapter automation (Billpay, iPay, PayLynx) to remove duplicate scripts and inconsistent coverage.',
+      },
     ],
   },
   {
@@ -180,10 +224,20 @@ export const experience: ExperienceEntry[] = [
     dates: 'Sep 2016 – May 2019',
     blurb: 'Retail / HR mobile and web automation at scale with Jenkins-driven regression.',
     highlights: [
-      'Hybrid Java / Selenium / Appium framework on Sauce Labs and local devices; raised regression coverage ~65% and cut manual effort ~40%.',
-      'Jenkins “One-Touch Automation” for unattended E2E—roughly halved release validation time.',
-      '200+ reusable scripts for HR modules; automated Core HR, Benefits, leave accruals, and talent management.',
-      'SAP GUI automation (Java COM bridge); UiPath RPA POC showing 20–30% savings potential.',
+      {
+        text: 'Built a hybrid Java / Selenium / Appium harness on Sauce Labs and local devices—more scenarios automated with fewer flaky runs.',
+        metrics: ['+65% coverage', '~40% less manual'],
+      },
+      {
+        text: 'Introduced Jenkins “One-Touch Automation” for unattended E2E so release validation stopped being an overnight bottleneck.',
+        metrics: ['~50% faster validation'],
+      },
+      {
+        text: 'Authored 200+ reusable HR scripts (Core HR, Benefits, leave, talent)—shared building blocks for the whole QA org.',
+      },
+      {
+        text: 'Explored SAP GUI automation (Java COM) and an UiPath RPA POC that showed 20–30% savings potential on repetitive tasks.',
+      },
     ],
   },
   {
@@ -193,9 +247,17 @@ export const experience: ExperienceEntry[] = [
     dates: 'Mar 2015 – Aug 2016',
     blurb: 'ACA-compliant healthcare billing automation with strong API and regression coverage.',
     highlights: [
-      'End-to-end UI and API automation (Selenium, Java) for premiums, adjustments, payments, and reconciliation—~60% more regression coverage, ~30% fewer financial defects.',
-      'REST testing in Postman; risk-based strategies and HP ALM traceability in Agile.',
-      'Automation embedded in sprints and CI; ~45% faster regression cycles.',
+      {
+        text: 'Automated premiums, adjustments, payments, and reconciliation with UI + API coverage—fewer financial defects escaping to prod.',
+        metrics: ['+60% regression', '~30% fewer defects'],
+      },
+      {
+        text: 'Drove REST validation in Postman with risk-based suites and ALM traceability so audits and sprints stayed aligned.',
+      },
+      {
+        text: 'Embedded automation in CI and sprint cadence—shrunk regression cycle time materially for recurring releases.',
+        metrics: ['~45% faster cycles'],
+      },
     ],
   },
   {
@@ -205,50 +267,65 @@ export const experience: ExperienceEntry[] = [
     dates: 'Dec 2014 – Mar 2015',
     blurb: 'Foundational training in Java, PL/SQL, QA process, and Agile exposure.',
     highlights: [
-      'Coursework in OS, Java, PL/SQL, networking; SDLC/STLC, planning, and defect lifecycle.',
-      'Introduction to Agile/Scrum and iterative quality practices.',
+      { text: 'Completed coursework in OS, Java, PL/SQL, and networking with SDLC/STLC, planning, and defect lifecycle practice.' },
+      { text: 'First exposure to Agile/Scrum and iterative delivery—baseline for later automation and team enablement work.' },
     ],
   },
 ]
 
-export const projects = [
+export type ProjectEntry = {
+  name: string
+  problem: string
+  solution: string
+  impact: string
+  tags: readonly string[]
+}
+
+export const projects: readonly ProjectEntry[] = [
   {
     name: 'TestMate AI',
-    summary:
-      'AI-enabled end-to-end testing platform using Amazon Titan and Claude Sonnet to generate executable tests and automation from requirements and code embeddings—used across Q2.',
+    problem: 'Teams needed a faster path from requirements and code to trustworthy automated checks.',
+    solution:
+      'Co-architected an LLM + embedding pipeline (Amazon Titan, Claude) that synthesizes executable tests from requirements and code context.',
+    impact: 'Adopted across Q2—shortens the gap between intent and regression coverage on high-stakes releases.',
     tags: ['Python', 'AWS', 'LLMs', 'Quality'],
   },
   {
     name: 'Q2 Contraster',
-    summary:
-      'Python-based upgrade validation tool for Implementation teams; contributed S3-backed configuration storage for scalable, centralized management.',
+    problem: 'Implementation teams struggled with fragmented configs when validating upgrades at scale.',
+    solution: 'Contributed S3-backed, centralized configuration so upgrade validation stays consistent and auditable.',
+    impact: 'Reduced setup friction and support churn for teams running repeated upgrade scenarios.',
     tags: ['Python', 'Amazon S3', 'Validation'],
   },
   {
     name: 'Visual regression in Q2 ATF',
-    summary:
-      'Integrated Needle-based visual regression into the Q2 automation framework for consistent web UI validation.',
+    problem: 'UI drift was caught late, creating rework before releases.',
+    solution: 'Integrated Needle-based visual regression into the shared ATF framework with CI-friendly execution.',
+    impact: 'Earlier detection of unintended UI changes—fewer late surprises for product and QA.',
     tags: ['Python', 'Needle', 'Jenkins'],
   },
   {
     name: 'SSO adapter automation hub',
-    summary:
-      'Centralized automation repository for SSO adapter validation across Billpay, iPay, and PayLynx.',
+    problem: 'Duplicate scripts and inconsistent coverage across Billpay, iPay, and PayLynx SSO adapters.',
+    solution: 'Centralized automation into one repository with shared patterns for adapter validation.',
+    impact: 'Less duplicate effort and more reliable cross-product SSO regression.',
     tags: ['Java', 'Selenium', 'SSO'],
   },
   {
     name: 'Mobile visual comparison POC',
-    summary:
-      'Proof of concept for mobile visual testing with Appium and Kobiton across iOS and Android.',
+    problem: 'Mobile UI regressions were hard to catch consistently across iOS and Android.',
+    solution: 'Built a POC using Appium and Kobiton to compare visual baselines on real devices and simulators.',
+    impact: 'Proved feasibility for device-farm visual checks before broader framework investment.',
     tags: ['Appium', 'Kobiton', 'Mobile'],
   },
   {
     name: 'Hybrid mobile framework (Mast Global)',
-    summary:
-      'Java, Selenium, and Appium framework for simulators and Sauce Labs, with strong regression coverage gains.',
+    problem: 'Retail and HR releases needed broader mobile + web coverage without ballooning manual effort.',
+    solution: 'Delivered a Java / Selenium / Appium framework on Sauce Labs and local devices with reusable modules.',
+    impact: 'Large jump in automated regression coverage and materially less manual execution per release.',
     tags: ['Java', 'Appium', 'Sauce Labs'],
   },
-] as const
+]
 
 export const certificationsNote = {
   title: 'Certifications',
@@ -256,15 +333,23 @@ export const certificationsNote = {
     'Formal vendor certifications are not listed on the résumé PDF this site mirrors. Day-to-day work includes AWS-oriented QA infrastructure, Nomad, Vault, Jenkins and GitLab CI, and enterprise test management (JIRA, qTest). Happy to share training records or credentials on request.',
 } as const
 
-export const navLinks = [
+export type NavLink = {
+  href: string
+  label: string
+  mobileHref?: string
+  /** Visual hierarchy in the header */
+  emphasis?: 'primary' | 'muted'
+}
+
+export const navLinks: readonly NavLink[] = [
   { href: '#hero', label: 'Home' },
-  { href: '#experience', label: 'Experience' },
+  { href: '#experience', label: 'Experience', emphasis: 'primary' },
+  { href: '#projects', label: 'Projects', emphasis: 'primary' },
   /** Desktop: `#skills` = sticky rail under portrait. Mobile: full-width panel id */
   { href: '#skills', mobileHref: '#skills-panel', label: 'Skills' },
   /** Desktop: education lives in sticky rail under Skills. Mobile: `#education` in main column. */
-  { href: '#education-desktop', mobileHref: '#education', label: 'Education' },
-  { href: '#about', label: 'About' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#certifications', label: 'Certifications' },
+  { href: '#education-desktop', mobileHref: '#education', label: 'Education', emphasis: 'muted' },
+  { href: '#about', label: 'About', emphasis: 'muted' },
+  { href: '#certifications', label: 'Certifications', emphasis: 'muted' },
   { href: '#contact', label: 'Contact' },
-] as const
+]

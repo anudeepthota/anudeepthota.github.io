@@ -25,7 +25,7 @@ export function Section({
     <section
       {...(id ? { id } : {})}
       className={cn(
-        'scroll-mt-28 border-t border-border/60 py-16 sm:py-24',
+        'scroll-mt-28 border-t border-border/60 py-20 sm:py-28',
         className,
       )}
     >
@@ -35,17 +35,17 @@ export function Section({
         )}
       >
         <Reveal>
-          <div className="mb-9 max-w-2xl sm:mb-10">
+          <div className="mb-10 max-w-prose sm:mb-12">
             {eyebrow ? (
-              <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-accent sm:text-[0.8125rem]">
+              <p className="mb-3.5 text-xs font-bold uppercase tracking-[0.24em] text-accent sm:text-[0.8125rem]">
                 {eyebrow}
               </p>
             ) : null}
-            <h2 className="text-display-sm font-semibold tracking-tight text-foreground sm:text-[2.125rem] sm:leading-[1.12]">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.15] tracking-tight text-foreground sm:text-[2.375rem] sm:leading-[1.1]">
               {title}
             </h2>
             {description ? (
-              <p className="mt-4 text-[1.0625rem] leading-relaxed text-muted-foreground sm:text-lg">
+              <p className="mt-5 text-[1.0625rem] leading-[1.65] text-foreground/72 sm:text-lg sm:leading-relaxed">
                 {description}
               </p>
             ) : null}

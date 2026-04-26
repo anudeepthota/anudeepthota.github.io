@@ -4,11 +4,31 @@ import { ProfileIconLinks } from '@/components/ProfileIconLinks'
 import { cn } from '@/lib/utils'
 import { navLinks } from '@/data/site'
 
+function desktopLinkClass(emphasis?: 'primary' | 'muted') {
+  if (emphasis === 'primary') {
+    return 'rounded-lg px-3 py-2 text-[0.9375rem] font-semibold text-foreground/95 transition-colors duration-200 ease-out hover:bg-white/[0.06] hover:text-foreground sm:text-base'
+  }
+  if (emphasis === 'muted') {
+    return 'rounded-lg px-2.5 py-2 text-[0.8125rem] font-medium text-muted-foreground/75 transition-colors duration-200 ease-out hover:bg-white/[0.04] hover:text-foreground/90 sm:text-[0.9375rem]'
+  }
+  return 'rounded-lg px-3 py-2 text-[0.9375rem] font-medium text-muted-foreground transition-colors duration-200 ease-out hover:bg-white/[0.04] hover:text-foreground sm:text-base'
+}
+
+function mobileLinkClass(emphasis?: 'primary' | 'muted') {
+  if (emphasis === 'primary') {
+    return 'block rounded-lg px-3 py-2.5 text-base font-semibold text-foreground transition-colors hover:bg-white/[0.05]'
+  }
+  if (emphasis === 'muted') {
+    return 'block rounded-lg px-3 py-2 text-[0.9375rem] font-medium text-muted-foreground transition-colors hover:bg-white/[0.05] hover:text-foreground'
+  }
+  return 'block rounded-lg px-3 py-2.5 text-base font-medium text-foreground transition-colors hover:bg-white/[0.05]'
+}
+
 export function Nav() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/75 shadow-card backdrop-blur-xl supports-[backdrop-filter]:bg-background/55">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/80 shadow-card backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
       <nav
         className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:gap-3 sm:px-6"
         aria-label="Primary"
@@ -20,17 +40,14 @@ export function Nav() {
           AT
         </a>
 
-        <div className="flex min-w-0 flex-1 items-center justify-end gap-1 sm:gap-2 md:gap-3">
-          <ul className="hidden items-center gap-1 md:flex">
+        <div className="flex min-w-0 flex-1 items-center justify-end gap-1 sm:gap-2 md:gap-2.5">
+          <ul className="hidden items-center gap-0.5 md:flex lg:gap-1">
             {navLinks.map((link) => (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  className="rounded-lg px-3 py-2 text-[0.9375rem] font-medium text-muted-foreground transition-colors duration-200 ease-out hover:bg-white/[0.04] hover:text-foreground sm:text-base"
-                >
-                  {link.label}
-                </a>
-              </li>
+                <li key={link.label}>
+                  <a href={link.href} className={desktopLinkClass(link.emphasis)}>
+                    {link.label}
+                  </a>
+                </li>
             ))}
           </ul>
           <ProfileIconLinks className="shrink-0" />
@@ -62,7 +79,7 @@ export function Nav() {
               <li key={`${link.label}-mobile`}>
                 <a
                   href={href}
-                  className="block rounded-lg px-3 py-2.5 text-base font-medium text-foreground transition-colors hover:bg-white/[0.05]"
+                  className={mobileLinkClass(link.emphasis)}
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
