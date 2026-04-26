@@ -25,8 +25,10 @@ export function HeroPortrait({
     >
       <div
         className={cn(
-          'pointer-events-none absolute rounded-full bg-gradient-to-br from-accent/12 via-transparent to-violet-500/10 blur-lg',
-          variant === 'rail' ? '-inset-1.5' : '-inset-2',
+          'pointer-events-none absolute rounded-full bg-gradient-to-br from-accent/12 via-transparent to-violet-500/10',
+          variant === 'rail'
+            ? '-inset-1 blur-md opacity-90'
+            : '-inset-2 blur-lg',
         )}
         aria-hidden
       />

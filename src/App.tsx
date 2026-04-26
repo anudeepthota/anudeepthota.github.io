@@ -75,10 +75,11 @@ export default function App() {
           </div>
           <aside
             id="skills"
-            className="relative hidden scroll-mt-28 md:col-span-4 md:block"
+            className="relative hidden scroll-mt-28 md:col-span-4 md:block md:pt-24"
             aria-label="Portrait and skills"
           >
-            <div className="sticky top-28 space-y-10 border-l border-border/60 pb-16 pl-6 md:pl-7 lg:pl-8">
+            {/* pt mirrors Hero so the rail clears the fixed header and lines up with hero copy */}
+            <div className="sticky top-24 space-y-10 border-l border-border/60 pb-16 pl-6 md:pl-7 lg:pl-8">
               <HeroPortrait variant="rail" />
               <Skills variant="rail" />
             </div>
