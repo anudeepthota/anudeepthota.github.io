@@ -1,6 +1,6 @@
 # anudeepthota.github.io
 
-Personal site for **Anudeep Thota** — built with [Vite](https://vitejs.dev/), React, TypeScript, Tailwind CSS, Framer Motion, and GitHub Pages.
+Personal site for **Anudeep Thota** — built with [Vite](https://vite.dev/), React, TypeScript, Tailwind CSS, Framer Motion, and GitHub Pages.
 
 ## Local development
 
@@ -19,27 +19,22 @@ Output is written to `dist/`.
 
 ## Deploy (GitHub Pages)
 
-The workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) builds `dist/`, uploads it as a **Pages artifact**, and runs **`actions/deploy-pages`**. A step also calls the GitHub API so the site uses **`build_type: workflow`** (publish from Actions), **not** `main` / (root) — serving `main` is what causes a **blank page** (`/src/main.tsx` in “View Page Source”).
+The workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) builds `dist/` and pushes it to the **`gh-pages`** branch using [`peaceiris/actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages). That only needs the default **`GITHUB_TOKEN`** (`contents: write`).
 
-### After you push to `main`
+We **do not** call the GitHub Pages admin API from Actions: `PUT /repos/.../pages` returns **403 Resource not accessible by integration** for `GITHUB_TOKEN`, so the site cannot be switched to “GitHub Actions” publishing automatically without a **personal access token** with repo admin (see `scripts/switch-pages-to-github-actions.sh` if you want that instead).
 
-1. Open [Actions](https://github.com/anudeepthota/anudeepthota.github.io/actions) and wait for **Deploy to GitHub Pages** to finish (green).
-2. The first time, GitHub may ask you to **approve** the `github-pages` environment for the deploy job — approve it.
-3. In **Settings → Pages → Build and deployment**, ensure **Source** is **GitHub Actions** (the API step usually sets this; if it still says “Deploy from a branch”, pick **GitHub Actions** and save).
-4. Hard-refresh `https://anudeepthota.github.io/` and check **View Page Source**: you should see `src="/assets/index-…js"`, not `/src/main.tsx`.
+### One-time setup (fixes a blank site)
 
-**Manual “Run workflow”:** Use branch **`main`** in “Use workflow from”, not `gh-pages` (that branch has no workflow file).
+If **View Page Source** shows `<script … src="/src/main.tsx">`, Pages is still publishing **`main` / (root)** (source files), not the build.
 
-### If the “Point Pages at GitHub Actions” step fails (403)
+1. Wait for the latest [Actions](https://github.com/anudeepthota/anudeepthota.github.io/actions) run on **`main`** to finish (it updates **`gh-pages`**).
+2. Open **Settings → Pages**:  
+   `https://github.com/anudeepthota/anudeepthota.github.io/settings/pages`
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Set **Branch** to **`gh-pages`** and folder **`/ (root)`**, then **Save**.
+5. Hard-refresh `https://anudeepthota.github.io/`. Source should show `/assets/index-….js`, not `/src/main.tsx`.
 
-Your `GITHUB_TOKEN` may not be allowed to change Pages settings. Either:
-
-- Set **Settings → Pages → Source** to **GitHub Actions** yourself, then re-run the workflow, or  
-- Use a PAT with repo admin scope: `scripts/switch-pages-to-github-actions.sh` (export `GITHUB_TOKEN` or `GH_TOKEN`).
-
-### Legacy: `gh-pages` branch only
-
-Older docs referred to publishing the **`gh-pages`** branch. That still works if you point Pages at that branch, but **this repo’s workflow no longer updates `gh-pages`** — prefer **GitHub Actions** as above.
+**Manual “Run workflow”:** Use branch **`main`** in “Use workflow from”, not `gh-pages`.
 
 ## Repository
 
