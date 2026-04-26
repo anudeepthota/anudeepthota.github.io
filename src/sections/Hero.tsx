@@ -62,7 +62,7 @@ export function Hero() {
           </motion.p>
 
           <motion.ul
-            className="mt-7 max-w-lg space-y-5 sm:mt-8 sm:space-y-6"
+            className="mt-6 max-w-lg space-y-3.5 sm:mt-7 sm:space-y-4"
             initial={reduced ? undefined : { opacity: 0, y: 10 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduced ? 0 : 0.2 }}
@@ -73,23 +73,21 @@ export function Hero() {
               return (
                 <li
                   key={line.text}
-                  className={cn('flex gap-3', isMetric ? 'items-center' : 'items-start')}
+                  className={cn('flex gap-2.5', isMetric ? 'items-center' : 'items-start')}
                 >
                   <span
                     className={cn(
-                      'flex size-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent',
-                      isMetric ? 'self-center' : 'mt-1',
+                      'flex size-4 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent',
+                      isMetric ? 'self-center' : 'mt-0.5',
                     )}
                     aria-hidden
                   >
-                    <Check className="size-3.5 stroke-[2.5]" />
+                    <Check className="size-3 stroke-[2.5]" />
                   </span>
                   <span
                     className={cn(
-                      'min-w-0 leading-relaxed',
-                      isMetric
-                        ? 'text-foreground'
-                        : 'pt-0.5 text-[0.9375rem] text-foreground/80 sm:text-base',
+                      'min-w-0 text-sm font-normal leading-relaxed',
+                      isMetric ? 'text-foreground' : 'pt-px text-foreground/78 sm:text-[0.9375rem]',
                     )}
                   >
                     <RichText
