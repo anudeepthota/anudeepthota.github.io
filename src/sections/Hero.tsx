@@ -13,7 +13,7 @@ export function Hero() {
       className="relative flex min-h-[100dvh] items-center overflow-hidden pt-24 pb-20 sm:pt-28 sm:pb-24"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_0%_40%,hsl(217_91%_60%/0.12),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_0%_40%,hsl(217_72%_52%/0.12),transparent_55%)]"
         aria-hidden
       />
       <div className="relative mx-auto grid w-full max-w-6xl items-center gap-14 px-4 sm:gap-12 sm:px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">

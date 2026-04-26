@@ -4,18 +4,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/**
+ * Theme: B2B / fintech-leaning dark (tinted charcoal, not pure black; restrained blue accent;
+ * foreground slightly off-white for long reading). Tweak HSL components only — use hsl(var(--token)).
+ */
 @layer base {
   :root {
-    --background: 222 47% 5%;
-    --foreground: 210 40% 98%;
-    --card: 222 40% 8%;
-    --card-foreground: 210 40% 98%;
-    --muted: 215 20% 55%;
-    --muted-foreground: 215 16% 65%;
-    --accent: 217 91% 60%;
+    --background: 220 22% 6%;
+    --foreground: 210 18% 94%;
+    --card: 220 18% 9.5%;
+    --card-foreground: 210 18% 94%;
+    --muted: 215 14% 52%;
+    --muted-foreground: 216 12% 68%;
+    /* Saturated enough for CTAs, not neon on dark */
+    --accent: 217 72% 52%;
     --accent-foreground: 0 0% 100%;
-    --ring: 217 91% 60%;
-    --border: 217 19% 18%;
+    --ring: 217 72% 52%;
+    --border: 220 14% 17%;
     --radius: 0.875rem;
   }
 

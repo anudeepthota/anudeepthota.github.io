@@ -1,3 +1,4 @@
+import { GradientDots } from '@/components/ui/gradient-dots'
 import { Nav } from '@/components/Nav'
 import { About } from '@/sections/About'
 import { Certifications } from '@/sections/Certifications'
@@ -10,14 +11,34 @@ import { Skills } from '@/sections/Skills'
 export default function App() {
   return (
     <div className="relative min-h-dvh">
+      {/* Tinted charcoal wash — avoids pure black; slight depth top→bottom */}
       <div
-        className="pointer-events-none fixed inset-0 -z-10 bg-[length:48px_48px] bg-grid-fade opacity-[0.22]"
+        className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-b from-[hsl(220_20%_8%)] via-[hsl(220_22%_6%)] to-[hsl(222_26%_4%)]"
+        aria-hidden
+      />
+      {/* Soft vignette — edges settle darker for focus toward center */}
+      <div
+        className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_115%_100%_at_50%_50%,transparent_35%,hsl(222_28%_3%/0.92)_100%)]"
+        aria-hidden
+      />
+      {/* Single restrained brand halo (no rainbow / multi-bloom clutter) */}
+      <div
+        className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_90%_55%_at_50%_-5%,hsl(217_72%_52%/0.1),transparent_52%)]"
         aria-hidden
       />
       <div
-        className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(ellipse_90%_55%_at_50%_-8%,hsl(217_91%_60%/0.14),transparent_58%),radial-gradient(ellipse_50%_40%_at_100%_0%,hsl(263_70%_50%/0.08),transparent_50%)]"
+        className="pointer-events-none fixed inset-0 -z-10 bg-[length:48px_48px] bg-grid-fade opacity-[0.07]"
         aria-hidden
       />
+      <div className="pointer-events-none fixed inset-0 -z-[9] overflow-hidden" aria-hidden>
+        <GradientDots
+          className="opacity-[0.055]"
+          dotSize={5}
+          spacing={16}
+          duration={48}
+          colorCycleDuration={14}
+        />
+      </div>
       <a
         href="#main"
         className="absolute left-[-9999px] top-0 z-[100] rounded-md bg-accent px-4 py-2 text-sm font-medium text-accent-foreground shadow focus:left-4 focus:top-4"
