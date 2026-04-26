@@ -11,6 +11,7 @@ export function Contact() {
       eyebrow="Reach out"
       title="Contact"
       description="Direct lines from the résumé header—recruiting, collaboration, or deep dives on automation."
+      containWidth={false}
     >
       <Reveal>
         <div className="flex flex-col gap-8 rounded-2xl border border-border/80 bg-gradient-to-br from-card/80 via-card/40 to-accent/[0.07] p-8 shadow-card backdrop-blur-md sm:flex-row sm:items-center sm:justify-between sm:p-10">

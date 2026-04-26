@@ -1,5 +1,6 @@
 import { SparklesCore } from '@/components/ui/sparkles'
 import { GradientDots } from '@/components/ui/gradient-dots'
+import { HeroPortrait } from '@/components/HeroPortrait'
 import { Nav } from '@/components/Nav'
 import { About } from '@/sections/About'
 import { Certifications } from '@/sections/Certifications'
@@ -60,13 +61,29 @@ export default function App() {
       </a>
       <Nav />
       <main id="main" className="relative z-10">
-        <Hero />
-        <Experience />
-        <Skills />
-        <About />
-        <Certifications />
-        <Projects />
-        <Contact />
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 md:grid md:grid-cols-12 md:gap-x-8 md:items-start lg:gap-x-10">
+          <div className="min-w-0 md:col-span-8">
+            <Hero />
+            <Experience />
+            <div className="md:hidden">
+              <Skills variant="full" containWidth={false} />
+            </div>
+            <About />
+            <Certifications />
+            <Projects />
+            <Contact />
+          </div>
+          <aside
+            id="skills"
+            className="relative hidden scroll-mt-28 md:col-span-4 md:block"
+            aria-label="Portrait and skills"
+          >
+            <div className="sticky top-28 space-y-10 border-l border-border/60 pb-16 pl-6 md:pl-7 lg:pl-8">
+              <HeroPortrait />
+              <Skills variant="rail" />
+            </div>
+          </aside>
+        </div>
       </main>
       <footer className="relative z-10 border-t border-border/80 py-12 text-center text-sm text-muted-foreground">
         <p className="mx-auto max-w-md leading-relaxed">

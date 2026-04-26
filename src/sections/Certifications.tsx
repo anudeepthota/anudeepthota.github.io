@@ -9,6 +9,7 @@ export function Certifications() {
       eyebrow="Credentials"
       title={certificationsNote.title}
       description="Straightforward note on credentials versus hands-on platform work."
+      containWidth={false}
     >
       <Reveal>
         <div className="max-w-3xl rounded-2xl border border-border/80 bg-card/50 p-8 shadow-card backdrop-blur-sm sm:p-10">

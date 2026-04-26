@@ -21,7 +21,7 @@ export function Nav() {
 
         <ul className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
-            <li key={link.href}>
+            <li key={link.label}>
               <a
                 href={link.href}
                 className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors duration-200 ease-out hover:bg-white/[0.04] hover:text-foreground"
@@ -52,17 +52,21 @@ export function Nav() {
         )}
       >
         <ul className="flex flex-col px-4 py-3">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="block rounded-lg px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-white/[0.05]"
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {navLinks.map((link) => {
+            const href =
+              'mobileHref' in link && typeof link.mobileHref === 'string' ? link.mobileHref : link.href
+            return (
+              <li key={`${link.label}-mobile`}>
+                <a
+                  href={href}
+                  className="block rounded-lg px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-white/[0.05]"
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </a>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </header>

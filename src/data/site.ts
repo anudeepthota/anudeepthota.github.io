@@ -240,7 +240,8 @@ export const certificationsNote = {
 export const navLinks = [
   { href: '#hero', label: 'Home' },
   { href: '#experience', label: 'Experience' },
-  { href: '#skills', label: 'Skills' },
+  /** Desktop: `#skills` = sticky rail under portrait. Mobile: full-width panel id */
+  { href: '#skills', mobileHref: '#skills-panel', label: 'Skills' },
   { href: '#about', label: 'About' },
   { href: '#projects', label: 'Projects' },
   { href: '#certifications', label: 'Certifications' },

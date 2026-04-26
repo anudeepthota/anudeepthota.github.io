@@ -9,6 +9,7 @@ export function Experience() {
       eyebrow="Timeline"
       title="Experience"
       description="Newest first—each card starts with how the role fits the bigger picture, then concrete outcomes. Open the résumé PDF for the exhaustive list."
+      containWidth={false}
     >
       <ol className="space-y-7 sm:space-y-8">
         {experience.map((job, i) => (

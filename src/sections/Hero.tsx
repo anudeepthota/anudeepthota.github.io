@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowDown, Download, Mail } from 'lucide-react'
+import { HeroPortrait } from '@/components/HeroPortrait'
 import { HeroShimmerName } from '@/components/HeroShimmerName'
 import { Button } from '@/components/ui/button'
 import { heroAtAGlance, person } from '@/data/site'
@@ -17,7 +18,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_65%_45%_at_0%_38%,hsl(217_72%_52%/0.14),transparent_58%)]"
         aria-hidden
       />
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-7 px-4 sm:gap-8 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
+      <div className="relative flex w-full flex-col gap-7 sm:gap-8 md:px-0">
         <div className="min-w-0 flex-1 lg:max-w-[min(100%,36rem)] xl:max-w-xl">
           <motion.p
             className="text-xs font-bold uppercase tracking-[0.28em] text-accent"
@@ -106,33 +107,9 @@ export function Hero() {
           </motion.a>
         </div>
 
-        <motion.aside
-          className="relative mx-auto w-full max-w-[210px] shrink-0 sm:max-w-[230px] lg:mx-0 lg:mt-1 lg:max-w-[248px] xl:max-w-[260px]"
-          initial={reduced ? undefined : { opacity: 0, y: 24 }}
-          animate={reduced ? undefined : { opacity: 1, y: 0 }}
-          transition={{ ...transition, delay: reduced ? 0 : 0.14 }}
-          aria-label="Portrait"
-        >
-          <div
-            className="pointer-events-none absolute -inset-2 rounded-full bg-gradient-to-br from-accent/12 via-transparent to-violet-500/10 blur-lg"
-            aria-hidden
-          />
-          <figure className="relative aspect-square w-full">
-            <div className="rounded-full bg-gradient-to-br from-white/12 via-white/[0.04] to-accent/18 p-[2px] shadow-card">
-              <div className="aspect-square size-full overflow-hidden rounded-full bg-card ring-1 ring-white/[0.06]">
-                <img
-                  src="/profile.jpg"
-                  alt="Portrait of Anudeep Thota"
-                  width={320}
-                  height={320}
-                  className="size-full rounded-full object-cover object-[center_15%] [transform:scale(1.08)]"
-                  decoding="async"
-                  fetchPriority="high"
-                />
-              </div>
-            </div>
-          </figure>
-        </motion.aside>
+        <div className="mt-2 flex justify-center md:hidden">
+          <HeroPortrait />
+        </div>
       </div>
     </section>
   )

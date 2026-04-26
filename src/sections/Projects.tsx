@@ -13,6 +13,7 @@ export function Projects() {
       eyebrow="Highlights"
       title="Projects"
       description="Representative initiatives from the résumé—larger cards are the ones I lead or co-own."
+      containWidth={false}
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
         {projects.map((project, i) => {

@@ -9,6 +9,8 @@ export function Section({
   description,
   children,
   className,
+  /** When nested in a padded column (e.g. desktop main rail), avoid double horizontal padding */
+  containWidth = true,
 }: {
   id: string
   eyebrow?: string
@@ -16,6 +18,7 @@ export function Section({
   description?: string
   children: ReactNode
   className?: string
+  containWidth?: boolean
 }) {
   return (
     <section
@@ -25,7 +28,11 @@ export function Section({
         className,
       )}
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div
+        className={cn(
+          containWidth ? 'mx-auto max-w-6xl px-4 sm:px-6' : 'w-full max-w-none px-0',
+        )}
+      >
         <Reveal>
           <div className="mb-9 max-w-2xl sm:mb-10">
             {eyebrow ? (

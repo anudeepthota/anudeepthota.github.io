@@ -9,6 +9,7 @@ export function About() {
       eyebrow="Profile"
       title="About"
       description="How I work with teams and where the depth comes from—without repeating the hero. Full timelines and tool list are on the résumé PDF."
+      containWidth={false}
     >
       <div className="grid gap-6 lg:grid-cols-12 lg:items-start">
         <Reveal className="lg:col-span-7">
