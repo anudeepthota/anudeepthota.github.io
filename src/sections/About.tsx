@@ -7,7 +7,7 @@ export function About() {
       id="about"
       eyebrow="Profile"
       title="About"
-      description="Philosophy and differentiators—short scan, then the résumé for timelines and tools."
+      description="Philosophy and differentiators—short scan; résumé for timelines and tools."
       containWidth={false}
     >
       <div className="grid gap-10 sm:gap-12 lg:grid-cols-12 lg:items-start">
@@ -18,7 +18,7 @@ export function About() {
               Treat automation as a release gate: tight signals, reproducible environments, and ownership across
               dependent systems—not happy-path-only UI.
             </p>
-            <ul className="mt-8 max-w-prose space-y-5 text-base leading-relaxed text-muted-foreground/88 sm:text-[1.0625rem] sm:space-y-6">
+            <ul className="mt-8 max-w-prose space-y-6 text-base leading-relaxed text-muted-foreground/78 sm:text-[1.0625rem] sm:space-y-7">
               <li className="flex gap-3">
                 <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent/85" aria-hidden />
                 <span>
@@ -56,7 +56,7 @@ export function About() {
               <p className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-[1.65rem]">
                 Ownership, clarity, speed
               </p>
-              <ul className="mt-6 max-w-prose space-y-4 text-base leading-relaxed text-muted-foreground/88 sm:space-y-5">
+              <ul className="mt-6 max-w-prose space-y-5 text-base leading-relaxed text-muted-foreground/76 sm:space-y-6">
                 <li className="flex gap-3">
                   <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent/80" aria-hidden />
                   <span>Regression strategy across dependent systems—not only happy-path UI.</span>

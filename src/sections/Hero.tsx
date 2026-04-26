@@ -4,6 +4,7 @@ import { HeroPortrait } from '@/components/HeroPortrait'
 import { HeroShimmerName } from '@/components/HeroShimmerName'
 import { ProfileIconLinks } from '@/components/ProfileIconLinks'
 import { RichText } from '@/components/RichText'
+import { cn } from '@/lib/utils'
 import { person } from '@/data/site'
 
 export function Hero() {
@@ -41,8 +42,8 @@ export function Hero() {
           <motion.p
             className={
               reduced
-                ? 'mt-2.5 text-base font-medium text-foreground/70 sm:text-lg'
-                : 'mt-2.5 animate-text-pulse-soft text-base font-medium text-foreground/70 sm:text-lg'
+                ? 'mt-2.5 text-base font-medium text-foreground/65 sm:text-lg'
+                : 'mt-2.5 animate-text-pulse-soft text-base font-medium text-foreground/65 sm:text-lg'
             }
             initial={reduced ? undefined : { opacity: 0, y: 14 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
@@ -52,7 +53,7 @@ export function Hero() {
           </motion.p>
 
           <motion.p
-            className="mt-6 max-w-lg text-lg font-semibold leading-snug tracking-tight text-foreground sm:text-xl"
+            className="mt-6 max-w-lg whitespace-pre-line text-lg font-semibold leading-snug tracking-tight text-foreground sm:text-xl sm:leading-snug"
             initial={reduced ? undefined : { opacity: 0, y: 12 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduced ? 0 : 0.16 }}
@@ -61,29 +62,49 @@ export function Hero() {
           </motion.p>
 
           <motion.ul
-            className="mt-6 max-w-lg space-y-4 sm:space-y-5"
+            className="mt-7 max-w-lg space-y-5 sm:mt-8 sm:space-y-6"
             initial={reduced ? undefined : { opacity: 0, y: 10 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduced ? 0 : 0.2 }}
             aria-label="Selected impact"
           >
-            {person.impactBullets.map((line) => (
-              <li key={line} className="flex gap-3">
-                <span
-                  className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent"
-                  aria-hidden
+            {person.impactBullets.map((line) => {
+              const isMetric = line.variant === 'metric'
+              return (
+                <li
+                  key={line.text}
+                  className={cn('flex gap-3', isMetric ? 'items-center' : 'items-start')}
                 >
-                  <Check className="size-3.5 stroke-[2.5]" />
-                </span>
-                <span className="min-w-0 pt-0.5 text-[0.9375rem] leading-relaxed text-foreground/82 sm:text-base">
-                  <RichText text={line} variant="heroMetric" />
-                </span>
-              </li>
-            ))}
+                  <span
+                    className={cn(
+                      'flex size-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent',
+                      isMetric ? 'self-center' : 'mt-1',
+                    )}
+                    aria-hidden
+                  >
+                    <Check className="size-3.5 stroke-[2.5]" />
+                  </span>
+                  <span
+                    className={cn(
+                      'min-w-0 leading-relaxed',
+                      isMetric
+                        ? 'text-foreground'
+                        : 'pt-0.5 text-[0.9375rem] text-foreground/80 sm:text-base',
+                    )}
+                  >
+                    <RichText
+                      text={line.text}
+                      variant="heroMetric"
+                      metricProminence={isMetric ? 'lead' : 'default'}
+                    />
+                  </span>
+                </li>
+              )
+            })}
           </motion.ul>
 
           <motion.p
-            className="mt-6 max-w-lg text-sm leading-relaxed text-muted-foreground/80 sm:text-[0.9375rem]"
+            className="mt-7 max-w-lg text-sm leading-relaxed text-muted-foreground/72 sm:mt-8 sm:text-[0.9375rem]"
             initial={reduced ? undefined : { opacity: 0 }}
             animate={reduced ? undefined : { opacity: 1 }}
             transition={{ ...transition, delay: reduced ? 0 : 0.26 }}

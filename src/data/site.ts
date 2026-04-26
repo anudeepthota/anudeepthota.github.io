@@ -1,16 +1,23 @@
+/** Hero impact lines: `metric` = full-line accent pills (skim-first). */
+export type HeroImpactLine = {
+  readonly text: string
+  readonly variant?: 'body' | 'metric'
+}
+
 export const person = {
   name: 'Anudeep Thota',
   /** Matches LinkedIn headline (SDET) and full role at Q2 */
   title: 'Software Development Engineer in Test (SDET)',
-  /** Hero: recruiter-first value prop (outcome-led, not tool-led) */
+  /** Hero summary; `\n\n` renders as paragraph breaks in Hero. */
   valueProposition:
-    'I build scalable test automation systems that reduce regression risk and unblock fast, reliable releases.',
-  /** 3 scannable proof points for the hero */
+    'I own enterprise UI automation on Selenium and Page Objects, REST/API validation (ReadyAPI mocks, Postman), and Appium—parallelized on Dockerized Selenium Grid when throughput matters. Jenkins and GitLab CI orchestrate suites across AWS-backed QA; Nomad migrations and HCL-driven stack work keep the same checks aligned from dev through prod-like environments.\n\nCo-architect on LLM-assisted test generation—embeddings and models—so requirements and repository context become executable CI checks earlier in the cycle, not at the last gate.\n\nOutcome: deeper regression across interconnected systems, reproducible pre-prod evidence, and release cadence without trading away coverage.',
+  /** Scan-first: context lines + standalone metric lines (Mast-era outcomes). */
   impactBullets: [
-    'Scaled regression across multi-system commercial banking platforms.',
-    '**+65%** coverage · **~40%** less manual — prior high-volume automation roles.',
-    'CI/CD validation from dev → prod-like QA stacks.',
-  ] as const,
+    { text: 'Scaled regression across multi-system commercial banking.', variant: 'body' },
+    { text: '**+65% coverage**', variant: 'metric' },
+    { text: '**~40% manual reduction**', variant: 'metric' },
+    { text: 'CI/CD validation from dev to prod-like QA stacks.', variant: 'body' },
+  ] as const satisfies readonly HeroImpactLine[],
   /** One-line credibility (replaces long technical hero paragraphs) */
   credibilityLine: 'SDET at Q2 · Commercial digital banking · Austin, TX',
   phone: '+1 (469) 834-7396',
@@ -159,12 +166,12 @@ export const experience: ExperienceEntry[] = [
     role: 'Software Development Engineer in Test — Commercial Otters, Quality Enablement',
     dates: 'June 2021 – Present',
     impactSummary:
-      'Owned release-grade automation across coupled commercial-banking platforms—UI, API, mobile—so teams ship with reliable pre-deploy validation.',
+      'Owned release-grade automation across coupled commercial banking (UI, API, mobile) for reliable pre-deploy validation.',
     blurb:
-      'CI/CD on AWS-backed QA; depth on Contraster, stack migrations (e.g. Carbon→FIC), and mobile hardening when programs need it.',
+      'AWS-backed QA CI/CD; Contraster, stack migrations (e.g. Carbon→FIC), mobile hardening when programs need it.',
     highlights: [
       {
-        text: 'Lead enterprise UI automation (ETMS, wires, bulk approvals) with Page Objects, and own regression across interconnected banking surfaces before deploy—aligned early with Scrum on test strategy.',
+        text: 'Lead enterprise UI automation (ETMS, wires, bulk approvals) with Page Objects; regression across interconnected surfaces before deploy—early Scrum alignment on strategy.',
         metrics: ['Release gate', 'Multi-surface'],
       },
       {
@@ -172,16 +179,16 @@ export const experience: ExperienceEntry[] = [
         metrics: ['Org-wide'],
       },
       {
-        text: 'Validated end-to-end **ACH** and money-movement paths across linked systems; documented QA configs so runs stay reproducible.',
+        text: 'Validated end-to-end **ACH** and money-movement across linked systems; documented QA configs for reproducible runs.',
       },
       {
-        text: 'Shipped **ReadyAPI** mocks for Okta SSO and consumer payments so teams validate integrations without environment gridlock.',
+        text: 'Shipped **ReadyAPI** mocks for Okta SSO and consumer payments—validate integrations without environment gridlock.',
       },
       {
-        text: 'Extended **Q2 ATF** (Python) across UI, API, and mobile on a Dockerized Selenium Grid for parallel, reliable execution.',
+        text: 'Extended **Q2 ATF** (Python) across UI, API, and mobile on Dockerized Selenium Grid for parallel execution.',
       },
       {
-        text: 'Operated **Jenkins** and **GitLab** pipelines across dev → staging → prod-like stacks; supported AWS/Nomad QA migration with HCL-driven changes.',
+        text: 'Operated **Jenkins** / **GitLab** across dev → staging → prod-like stacks; AWS/Nomad QA migration with HCL-driven changes.',
         metrics: ['3+ tiers'],
       },
     ],
@@ -192,15 +199,15 @@ export const experience: ExperienceEntry[] = [
     role: 'Automation Developer Intern (Quality Enablement)',
     dates: 'May 2020 – Dec 2020',
     impactSummary:
-      'Shipped visual regression and Jenkins-backed automation patterns inside the Q2 quality ecosystem—faster feedback for UI teams.',
-    blurb: 'Mobile POCs and centralized SSO adapter coverage.',
+      'Visual regression and Jenkins-backed patterns in the Q2 quality stack—faster UI feedback.',
+    blurb: 'Mobile POCs; centralized SSO adapter coverage.',
     highlights: [
       {
-        text: 'Added Needle-based visual regression to Q2 ATF so UI drift is caught automatically instead of in late manual passes.',
+        text: 'Needle-based visual regression in Q2 ATF—UI drift caught automatically, not in late manual passes.',
         metrics: ['Visual QA'],
       },
       {
-        text: 'Wired visual suites into Jenkins with Groovy for dynamic triggers and parallel runs—faster feedback on every build.',
+        text: 'Jenkins + Groovy: dynamic triggers and parallel visual runs—faster feedback per build.',
       },
       {
         text: 'Delivered a mobile visual comparison POC (Appium + Kobiton) proving feasibility for iOS and Android.',
@@ -216,12 +223,12 @@ export const experience: ExperienceEntry[] = [
     role: 'Test Automation Engineer',
     dates: 'Sep 2016 – May 2019',
     impactSummary:
-      'Scaled retail and HR automation—hybrid web/mobile harnesses and Jenkins-driven regression at L Brands velocity.',
-    blurb: 'Sauce Labs, device farms, and shared script libraries for QA org reuse.',
+      'Retail and HR automation at L Brands scale—hybrid web/mobile harnesses and Jenkins-driven regression.',
+    blurb: 'Sauce Labs, device farms, shared script libraries for QA reuse.',
     highlights: [
       {
-        text: 'Built a hybrid Java / Selenium / Appium harness on Sauce Labs and local devices—major lift in automated coverage with less manual execution.',
-        metrics: ['+65% coverage', '~40% less manual'],
+        text: 'Hybrid Java / Selenium / Appium on Sauce Labs and local devices—major automated coverage lift, less manual execution.',
+        metrics: ['+65% coverage', '~40% manual reduction'],
       },
       {
         text: 'Introduced Jenkins “One-Touch Automation” for unattended E2E so release validation stopped being an overnight bottleneck.',
@@ -241,18 +248,18 @@ export const experience: ExperienceEntry[] = [
     role: 'Test Analyst',
     dates: 'Mar 2015 – Aug 2016',
     impactSummary:
-      'ACA-aligned healthcare billing QE—UI and API automation with traceable regression for financially sensitive flows.',
-    blurb: 'Postman REST suites, risk-based planning, and sprint-embedded CI.',
+      'ACA-aligned healthcare billing QE—UI + API automation with traceable regression on financial flows.',
+    blurb: 'Postman REST, risk-based planning, sprint-embedded CI.',
     highlights: [
       {
-        text: 'Automated premiums, adjustments, payments, and reconciliation with UI + API coverage—fewer financial defects escaping to prod.',
-        metrics: ['+60% regression', '~30% fewer defects'],
+        text: 'Automated premiums, adjustments, payments, and reconciliation (UI + API)—fewer financial defects to prod.',
+        metrics: ['+60% regression depth', '~30% fewer defects'],
       },
       {
-        text: 'Drove REST validation in Postman with risk-based suites and ALM traceability so audits and sprints stayed aligned.',
+        text: 'REST validation in Postman: risk-based suites and ALM traceability for audits and sprint alignment.',
       },
       {
-        text: 'Embedded automation in CI and sprint cadence—shrunk regression cycle time materially for recurring releases.',
+        text: 'Automation in CI and sprint cadence—shorter regression cycles on recurring releases.',
         metrics: ['~45% faster cycles'],
       },
     ],
@@ -263,8 +270,8 @@ export const experience: ExperienceEntry[] = [
     role: 'Software Intern',
     dates: 'Dec 2014 – Mar 2015',
     impactSummary:
-      'Foundational SDET training—Java, SQL, QA lifecycle, and first exposure to Agile delivery.',
-    blurb: 'Formal coursework and process rigor before hands-on automation roles.',
+      'Foundational SDET training—Java, SQL, QA lifecycle, first Agile exposure.',
+    blurb: 'Coursework and process rigor before hands-on automation.',
     highlights: [
       { text: 'Completed coursework in OS, Java, PL/SQL, and networking with SDLC/STLC, planning, and defect lifecycle practice.' },
       { text: 'First exposure to Agile/Scrum and iterative delivery—baseline for later automation and team enablement work.' },

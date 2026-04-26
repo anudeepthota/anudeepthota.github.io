@@ -28,8 +28,8 @@ const ProjectCard = memo(function ProjectCard({ project, wide, delay, reduced }:
               }
         }
       >
-        <Card className="h-full overflow-hidden rounded-2xl border-border/80 bg-card/55 shadow-card backdrop-blur-sm ring-2 ring-transparent transition-[border-color,box-shadow,ring-color] duration-[240ms] ease-out hover:border-accent/35 hover:shadow-xl hover:shadow-accent/[0.1] hover:ring-accent/15">
-          <CardHeader className="space-y-4 px-7 pb-1 pt-7 sm:px-8 sm:pb-2 sm:pt-8">
+        <Card className="h-full overflow-hidden rounded-2xl border-border/80 bg-card/55 shadow-card backdrop-blur-sm ring-2 ring-transparent transition-[border-color,box-shadow,ring-color] duration-[260ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-accent/35 hover:shadow-xl hover:shadow-accent/[0.1] hover:ring-accent/15">
+          <CardHeader className="space-y-4 px-8 pb-1 pt-8 sm:px-9 sm:pb-2 sm:pt-9">
             <CardTitle className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">{project.name}</CardTitle>
             <ul className="flex flex-wrap gap-2" aria-label="Technologies">
               {project.tags.map((t) => (
@@ -42,7 +42,7 @@ const ProjectCard = memo(function ProjectCard({ project, wide, delay, reduced }:
               ))}
             </ul>
           </CardHeader>
-          <CardContent className="space-y-6 px-7 pb-8 pt-2 sm:space-y-7 sm:px-8 sm:pb-9">
+          <CardContent className="space-y-6 px-8 pb-9 pt-2 sm:space-y-7 sm:px-9 sm:pb-10">
             <div className="space-y-2">
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground/90">Problem</p>
               <p className="max-w-prose text-sm font-medium leading-relaxed text-foreground/82 sm:text-[0.95rem]">
@@ -76,7 +76,7 @@ export function Projects() {
       id="projects"
       eyebrow="Highlights"
       title="Projects"
-      description="Problem → solution → impact on every card. Hover for depth; details expand only when you need them elsewhere."
+      description="Problem → solution → impact on every card. Hover for depth."
       containWidth={false}
       className="pb-4 sm:pb-6"
     >
