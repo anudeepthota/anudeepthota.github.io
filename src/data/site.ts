@@ -1,14 +1,22 @@
 export const person = {
   name: 'Anudeep Thota',
   title: 'Software Engineer in Test',
+  /** One line for visitors scanning the hero */
   tagline:
-    'Quality enablement, UI/API/mobile automation, and CI/CD for complex financial platforms.',
+    'I design and ship automation for commercial banking at Q2—UI, API, and mobile—with ownership of regression across linked systems and modern CI/CD on AWS.',
   phone: '+1 (469) 834-7396',
   email: 'info2anudeepthota@gmail.com',
   linkedin: 'https://www.linkedin.com/in/anudeepthota/',
   github: 'https://github.com/anudeepthota',
   location: 'Austin, TX, USA',
 } as const
+
+/** Short facts under the hero—reduces empty space and orients first-time visitors */
+export const heroAtAGlance = [
+  { label: 'Employer', value: 'Q2 Software · Austin' },
+  { label: 'Scope', value: 'Commercial banking QE' },
+  { label: 'Signature work', value: 'TestMate AI · ATF · CI/CD' },
+] as const
 
 export const education = [
   {
@@ -25,63 +33,63 @@ export const education = [
   },
 ] as const
 
+/** Grouped for scanning; full tool list stays on the PDF résumé */
 export const skillGroups = [
   {
-    title: 'Programming & scripting',
-    items: ['Python', 'Java', 'Groovy', 'SQL', 'HCL (HashiCorp)', 'YAML'],
-  },
-  {
-    title: 'Frameworks & tools',
+    title: 'Automation & APIs',
     items: [
-      'Selenium',
-      'ReadyAPI',
-      'Postman',
-      'Nomad',
-      'Jenkins',
-      'GitLab',
-      'Eclipse',
-      'PyCharm',
-      'Appium',
-      'JIRA',
-      'qTest',
-      'BrowserStack',
-      'Kobiton',
-      'HP ALM',
-      'Sauce Labs',
-      'Amazon S3',
-      'HashiCorp Vault',
-      'JFrog Artifactory',
-      'Docker',
-      'Sourcetree',
-      'Git',
-      'TortoiseGit',
-      'Maven',
-      'TestNG',
-      'unittest',
-      'Stack provisioning & configuration',
+      'Selenium & Page Object patterns',
+      'Appium (iOS / Android)',
+      'REST / ReadyAPI / Postman',
+      'End-to-end & integration flows',
+      'Visual regression (Needle)',
+      'Hybrid frameworks',
     ],
   },
   {
-    title: 'Testing & methodologies',
+    title: 'CI/CD, cloud & delivery',
     items: [
-      'Hybrid automation frameworks',
-      'UI & API automation',
-      'Mobile automation',
-      'Performance testing (Locust)',
-      'CI/CD',
-      'Agile / Scrum',
+      'Jenkins (pipelines, Groovy)',
+      'GitLab CI',
+      'Docker & Selenium Grid',
+      'AWS (QA infrastructure)',
+      'Nomad (HCL)',
+      'HashiCorp Vault',
+      'JFrog Artifactory',
+      'Amazon S3',
+    ],
+  },
+  {
+    title: 'Languages & data',
+    items: ['Python', 'Java', 'Groovy', 'SQL', 'YAML', 'HCL'],
+  },
+  {
+    title: 'Quality & ways of working',
+    items: [
+      'Regression strategy & ownership',
+      'Test planning in Agile / Scrum',
       'SDLC & STLC',
-      'Test strategy & planning',
-      'REST API testing',
+      'Risk-based testing',
+      'Cross-team enablement',
     ],
   },
   {
     title: 'AI-assisted engineering',
-    items: ['Claude', 'Cursor', 'ChatGPT', 'MCP'],
+    items: ['Claude & ChatGPT', 'Cursor', 'MCP', 'LLM-assisted test design'],
   },
   {
-    title: 'Operating systems',
-    items: ['macOS', 'Windows', 'Linux'],
+    title: 'Collaboration & tooling',
+    items: [
+      'JIRA',
+      'qTest',
+      'BrowserStack',
+      'Kobiton',
+      'Sauce Labs',
+      'TestNG',
+      'Maven',
+      'Git',
+      'Eclipse / PyCharm',
+    ],
   },
 ] as const
 
@@ -90,6 +98,8 @@ export type ExperienceEntry = {
   location: string
   role: string
   dates: string
+  /** One sentence under the role header—sets context before bullets */
+  blurb?: string
   highlights: string[]
 }
 
@@ -99,22 +109,19 @@ export const experience: ExperienceEntry[] = [
     location: 'Austin, TX, USA',
     role: 'Software Engineer in Test (Commercial Otters, Quality Enablement)',
     dates: 'June 2021 – Present',
+    blurb:
+      'Hands-on automation for commercial digital banking, regression across interconnected platforms, and enablement for teams shipping on AWS-backed QA stacks.',
     highlights: [
-      'Directed test design and led UI automation for Commercial Otters (ETMS, Bulk Recipient Approval, Contract Wire), extending Page Object Model patterns for maintainable releases.',
-      'Owned regression validation across UUX, HQ, Ardent, and Tecton systems ahead of deployment.',
-      'Participated actively in Scrum ceremonies and planned test strategy early for upcoming features.',
-      'Validated end-to-end ACH Reversal across UUX, ACH Automation, and PIQS; documented QA configuration for repeatability.',
-      'Co-architected TestMate AI—an AI-enabled E2E testing platform using Amazon Titan and Claude Sonnet to turn requirements and code embeddings into executable tests and automation, adopted across teams.',
-      'Implemented ReadyAPI mock services for Okta inbound SSO and Consumer Payments adapter flows (BillPay, iPay) for isolated integration testing.',
-      'Contributed to Q2 ATF Python cross-platform automation (UI, API, mobile) from environment setup through reporting.',
-      'Helped implement Docker-based Selenium Grid and Selenium Manager for parallel, reliable runs.',
-      'Supported QA infrastructure migration to AWS with Nomad deployments and HCL-driven environment changes.',
-      'Designed Jenkins CI/CD workflows across dev, staging, and production-like environments with watch-triggered environment refresh.',
-      'Evolved Q2 Contraster (Python upgrade validation) with Amazon S3-backed configuration storage for Implementation teams.',
-      'Deployed and debugged Kamino-based ISO services in QA using Pushie for integration validation.',
-      'Led stack migration from Carbon to FIC: analyzed impacts, updated Jenkins/Q2 Insight API/FIC QA flows, and ran enablement sessions.',
-      'Improved Appium mobile automation stability across iOS and Android by refactoring and standardizing scripts.',
-      'Ran brown bags on Q2 Page Factory and framework conventions; served as automation “Goalie” for cross-team support.',
+      'Lead UI automation for Commercial Otters (ETMS, bulk recipient approval, contract wires), extending Page Object patterns for maintainable releases.',
+      'Own regression validation across UUX, HQ, Ardent, and Tecton before deployments; plan test strategy early with Scrum teams.',
+      'Validated end-to-end ACH reversal across UUX, ACH automation, and PIQS; documented QA configuration for repeatable runs.',
+      'Co-architected TestMate AI—Amazon Titan and Claude Sonnet turn requirements and code embeddings into executable tests—adopted across Q2.',
+      'ReadyAPI mock services for Okta inbound SSO and Consumer Payments (BillPay, iPay) for isolated integration testing.',
+      'Q2 ATF Python automation across UI, API, and mobile; Docker-based Selenium Grid and Selenium Manager for parallel, reliable runs.',
+      'Jenkins CI/CD across dev, staging, and production-like environments; supported QA migration to AWS with Nomad and HCL-driven changes.',
+      'Evolved Q2 Contraster (Python upgrade validation) with S3-backed configuration for Implementation teams.',
+      'Led stack migration from Carbon to FIC: impact analysis, Jenkins / Q2 Insight API / FIC QA updates, and enablement sessions.',
+      'Improved Appium stability on iOS and Android; brown-bags on Page Factory and “automation goalie” support for partner teams.',
     ],
   },
   {
@@ -122,12 +129,12 @@ export const experience: ExperienceEntry[] = [
     location: 'Austin, TX, USA',
     role: 'Automation Developer Intern (Quality Enablement)',
     dates: 'May 2020 – Dec 2020',
+    blurb: 'Visual regression, Jenkins integration, and mobile POCs inside the Q2 automation ecosystem.',
     highlights: [
-      'Added visual regression testing to Q2 ATF with Needle (Python) for automated UI consistency checks.',
-      'Maintained visual diff suites to cut manual UI verification.',
-      'Integrated visual suites into Jenkins with Groovy updates for dynamic triggers and parallel runs.',
-      'POC for mobile visual comparison with Appium and Kobiton across iOS and Android.',
-      'Built a centralized automation repository for SSO adapter validation across Billpay, iPay, and PayLynx.',
+      'Added Needle-based visual regression to Q2 ATF (Python) for automated UI consistency.',
+      'Integrated visual suites into Jenkins with Groovy for dynamic triggers and parallel runs.',
+      'Mobile visual comparison POC with Appium and Kobiton (iOS and Android).',
+      'Centralized automation repository for SSO adapter validation (Billpay, iPay, PayLynx).',
     ],
   },
   {
@@ -135,13 +142,12 @@ export const experience: ExperienceEntry[] = [
     location: 'Bengaluru, India',
     role: 'Test Automation Engineer',
     dates: 'Sep 2016 – May 2019',
+    blurb: 'Retail / HR mobile and web automation at scale with Jenkins-driven regression.',
     highlights: [
-      'Built a hybrid Java / Selenium / Appium framework for iOS and Android on Sauce Labs and local environments.',
-      'Raised regression coverage ~65% and cut manual effort ~40% with scalable mobile automation.',
-      'Scheduled unattended E2E runs via Jenkins “One-Touch Automation,” reducing release validation time ~50%.',
-      'Authored 200+ reusable scripts for HR modules, cutting manual regression ~45%.',
-      'Automated Core HR, Benefits, Leave Accruals, and Talent Management with Selenium and Jenkins.',
-      'SAP GUI automation with Java COM Bridge; RPA POC with UiPath showing 20–30% operational savings potential.',
+      'Hybrid Java / Selenium / Appium framework on Sauce Labs and local devices; raised regression coverage ~65% and cut manual effort ~40%.',
+      'Jenkins “One-Touch Automation” for unattended E2E—roughly halved release validation time.',
+      '200+ reusable scripts for HR modules; automated Core HR, Benefits, leave accruals, and talent management.',
+      'SAP GUI automation (Java COM bridge); UiPath RPA POC showing 20–30% savings potential.',
     ],
   },
   {
@@ -149,11 +155,11 @@ export const experience: ExperienceEntry[] = [
     location: 'Coimbatore, India',
     role: 'Programmer Analyst (Test Automation)',
     dates: 'Mar 2015 – Aug 2016',
+    blurb: 'ACA-compliant healthcare billing automation with strong API and regression coverage.',
     highlights: [
-      'End-to-end UI and API automation (Selenium, Java) for ACA-compliant billing: premiums, adjustments, payments, reconciliation—~60% more regression coverage and ~30% fewer financial defects.',
-      'REST API testing in Postman across integration endpoints.',
-      'Risk-based strategies and HP ALM traceability within Agile ceremonies.',
-      'Embedded automation in sprints and CI, cutting regression cycle time ~45%.',
+      'End-to-end UI and API automation (Selenium, Java) for premiums, adjustments, payments, and reconciliation—~60% more regression coverage, ~30% fewer financial defects.',
+      'REST testing in Postman; risk-based strategies and HP ALM traceability in Agile.',
+      'Automation embedded in sprints and CI; ~45% faster regression cycles.',
     ],
   },
   {
@@ -161,10 +167,10 @@ export const experience: ExperienceEntry[] = [
     location: 'Mysuru, India',
     role: 'Intern Trainee',
     dates: 'Dec 2014 – Mar 2015',
+    blurb: 'Foundational training in Java, PL/SQL, QA process, and Agile exposure.',
     highlights: [
-      'Training in operating systems, Java, PL/SQL, and networking.',
-      'SDLC/STLC, test planning, defect lifecycle, and QA standards.',
-      'Exposure to Agile/Scrum and iterative quality practices.',
+      'Coursework in OS, Java, PL/SQL, networking; SDLC/STLC, planning, and defect lifecycle.',
+      'Introduction to Agile/Scrum and iterative quality practices.',
     ],
   },
 ]
@@ -211,15 +217,15 @@ export const projects = [
 export const certificationsNote = {
   title: 'Certifications',
   body:
-    'The resume PDF used for this site does not list standalone certification credentials. Day-to-day work includes cloud migration (AWS), Nomad, Vault, Jenkins/GitLab CI, and enterprise QA platforms—happy to share credentials or training history on request.',
+    'Formal vendor certifications are not listed on the résumé PDF this site mirrors. Day-to-day work includes AWS-oriented QA infrastructure, Nomad, Vault, Jenkins and GitLab CI, and enterprise test management (JIRA, qTest). Happy to share training records or credentials on request.',
 } as const
 
 export const navLinks = [
   { href: '#hero', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#skills', label: 'Skills' },
   { href: '#experience', label: 'Experience' },
-  { href: '#certifications', label: 'Certifications' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#about', label: 'About' },
   { href: '#projects', label: 'Projects' },
+  { href: '#certifications', label: 'Certifications' },
   { href: '#contact', label: 'Contact' },
 ] as const

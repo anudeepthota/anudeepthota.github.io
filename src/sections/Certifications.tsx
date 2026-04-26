@@ -8,7 +8,7 @@ export function Certifications() {
       id="certifications"
       eyebrow="Credentials"
       title={certificationsNote.title}
-      description="Transparent note so nothing here is invented filler."
+      description="Straightforward note on credentials versus hands-on platform work."
     >
       <Reveal>
         <div className="max-w-3xl rounded-2xl border border-border/80 bg-card/50 p-8 shadow-card backdrop-blur-sm sm:p-10">

@@ -2,12 +2,14 @@ import { Reveal } from '@/components/Reveal'
 import { Section } from '@/components/Section'
 import { skillGroups } from '@/data/site'
 
+/** Bento spans for six skill groups: two tall left column, then balanced grid */
 const layouts: readonly string[] = [
-  'sm:col-span-2 lg:col-span-2 lg:row-span-1',
   'sm:col-span-2 lg:col-span-2 lg:row-span-2',
+  'sm:col-span-2 lg:col-span-2',
   'sm:col-span-2 lg:col-span-2',
   'sm:col-span-1 lg:col-span-1',
   'sm:col-span-1 lg:col-span-1',
+  'sm:col-span-2 lg:col-span-2',
 ]
 
 export function Skills() {
@@ -16,7 +18,7 @@ export function Skills() {
       id="skills"
       eyebrow="Capabilities"
       title="Skills"
-      description="Tooling and practices from the résumé—organized in a scannable bento layout."
+      description="Grouped by how I apply them day to day. The PDF résumé still has the full tool inventory for recruiters and ATS."
     >
       <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-flow-dense lg:grid-cols-4">
         {skillGroups.map((group, i) => (
@@ -25,7 +27,7 @@ export function Skills() {
             delay={i * 0.05}
             className={layouts[i] ?? 'sm:col-span-2 lg:col-span-2'}
           >
-            <div className="flex h-full min-h-[140px] flex-col rounded-2xl border border-border/80 bg-card/50 p-6 shadow-card backdrop-blur-sm transition-shadow duration-300 hover:shadow-glow lg:min-h-0">
+            <div className="flex h-full min-h-[130px] flex-col rounded-2xl border border-border/80 bg-card/50 p-6 shadow-card backdrop-blur-sm transition-shadow duration-300 hover:shadow-glow lg:min-h-0">
               <h3 className="text-sm font-semibold tracking-tight text-foreground">{group.title}</h3>
               <ul className="mt-4 flex flex-wrap content-start gap-2">
                 {group.items.map((item) => (

@@ -61,9 +61,9 @@ export default function App() {
       <Nav />
       <main id="main" className="relative z-10">
         <Hero />
-        <About />
-        <Skills />
         <Experience />
+        <Skills />
+        <About />
         <Certifications />
         <Projects />
         <Contact />

@@ -8,18 +8,16 @@ export function Experience() {
       id="experience"
       eyebrow="Timeline"
       title="Experience"
-      description="Roles and outcomes from the same résumé as this site—newest first."
+      description="Newest first—each card starts with how the role fits the bigger picture, then concrete outcomes. Open the résumé PDF for the exhaustive list."
     >
-      <ol className="space-y-8">
+      <ol className="space-y-7 sm:space-y-8">
         {experience.map((job, i) => (
           <Reveal key={`${job.company}-${job.role}-${job.dates}`} delay={i * 0.04}>
             <li className="relative rounded-2xl border border-border/80 bg-card/50 p-6 shadow-card backdrop-blur-sm sm:p-8">
               <div className="absolute left-6 top-0 hidden h-px w-12 bg-gradient-to-r from-accent/60 to-transparent sm:block" />
               <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <h3 className="text-lg font-semibold tracking-tight text-foreground">
-                    {job.company}
-                  </h3>
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground">{job.company}</h3>
                   <p className="mt-1 text-sm font-medium text-accent">{job.role}</p>
                   <p className="text-sm text-muted-foreground">{job.location}</p>
                 </div>
@@ -27,7 +25,10 @@ export function Experience() {
                   {job.dates}
                 </p>
               </div>
-              <ul className="mt-6 space-y-2.5 border-t border-border/60 pt-6 text-sm leading-relaxed text-muted-foreground">
+              {job.blurb ? (
+                <p className="mt-4 text-sm leading-relaxed text-foreground/88 sm:text-[0.95rem]">{job.blurb}</p>
+              ) : null}
+              <ul className="mt-5 space-y-2.5 border-t border-border/60 pt-5 text-sm leading-relaxed text-muted-foreground">
                 {job.highlights.map((h, idx) => (
                   <li key={`${job.dates}-${idx}`} className="flex gap-3">
                     <span

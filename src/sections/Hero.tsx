@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowDown, Download, Mail } from 'lucide-react'
 import { HeroShimmerName } from '@/components/HeroShimmerName'
 import { Button } from '@/components/ui/button'
-import { person } from '@/data/site'
+import { heroAtAGlance, person } from '@/data/site'
 
 export function Hero() {
   const reduced = useReducedMotion()
@@ -11,15 +11,14 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pb-12 pt-24 sm:pb-14 sm:pt-28 lg:pb-16"
+      className="relative overflow-hidden pb-10 pt-20 sm:pb-12 sm:pt-24 lg:pb-14 lg:pt-24"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_0%_40%,hsl(217_72%_52%/0.12),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_65%_45%_at_0%_38%,hsl(217_72%_52%/0.14),transparent_58%)]"
         aria-hidden
       />
-      {/* Tighter max-width + start-aligned row removes the wide “dead” corridor between copy and photo */}
-      <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-8 px-4 sm:gap-9 sm:px-6 lg:flex-row lg:items-center lg:justify-start lg:gap-10 xl:gap-12">
-        <div className="min-w-0 flex-1 lg:max-w-xl xl:max-w-2xl">
+      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-7 px-4 sm:gap-8 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
+        <div className="min-w-0 flex-1 lg:max-w-[min(100%,36rem)] xl:max-w-xl">
           <motion.p
             className="text-xs font-bold uppercase tracking-[0.28em] text-accent"
             initial={reduced ? undefined : { opacity: 0, y: 8 }}
@@ -30,7 +29,7 @@ export function Hero() {
           </motion.p>
 
           <motion.h1
-            className="mt-3 text-display font-semibold tracking-tight text-foreground sm:text-display-lg"
+            className="mt-2.5 text-display font-semibold tracking-tight text-foreground sm:text-display-lg"
             initial={reduced ? undefined : { opacity: 0, y: 18 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduced ? 0 : 0.1 }}
@@ -40,8 +39,8 @@ export function Hero() {
           <motion.p
             className={
               reduced
-                ? 'mt-2 text-lg font-medium text-foreground/85 sm:text-xl'
-                : 'mt-2 animate-text-pulse-soft text-lg font-medium text-foreground/85 sm:text-xl'
+                ? 'mt-1.5 text-lg font-medium text-foreground/85 sm:text-xl'
+                : 'mt-1.5 animate-text-pulse-soft text-lg font-medium text-foreground/85 sm:text-xl'
             }
             initial={reduced ? undefined : { opacity: 0, y: 16 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
@@ -50,15 +49,34 @@ export function Hero() {
             {person.title}
           </motion.p>
           <motion.p
-            className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-[1.05rem]"
+            className="mt-3 max-w-xl text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base"
             initial={reduced ? undefined : { opacity: 0, y: 16 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduced ? 0 : 0.22 }}
           >
             {person.tagline}
           </motion.p>
+
           <motion.div
-            className="mt-7 flex flex-wrap gap-3"
+            className="mt-5 grid gap-2.5 rounded-xl border border-border/70 bg-card/40 px-4 py-3 backdrop-blur-sm sm:grid-cols-3 sm:gap-3 sm:px-4 sm:py-3.5"
+            initial={reduced ? undefined : { opacity: 0, y: 12 }}
+            animate={reduced ? undefined : { opacity: 1, y: 0 }}
+            transition={{ ...transition, delay: reduced ? 0 : 0.24 }}
+            aria-label="At a glance"
+          >
+            {heroAtAGlance.map((row) => (
+              <div
+                key={row.label}
+                className="min-w-0 border-border/40 pb-2 last:border-0 last:pb-0 sm:border-b-0 sm:border-r sm:pb-0 sm:pr-4 last:sm:border-r-0 last:sm:pr-0"
+              >
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">{row.label}</p>
+                <p className="mt-1 text-sm font-medium leading-snug text-foreground">{row.value}</p>
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            className="mt-6 flex flex-wrap gap-3"
             initial={reduced ? undefined : { opacity: 0, y: 12 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduced ? 0 : 0.28 }}
@@ -77,19 +95,19 @@ export function Hero() {
             </Button>
           </motion.div>
           <motion.a
-            href="#about"
-            className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-accent"
+            href="#experience"
+            className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-accent"
             initial={reduced ? undefined : { opacity: 0 }}
             animate={reduced ? undefined : { opacity: 1 }}
-            transition={{ delay: reduced ? 0 : 0.5, duration: reduced ? 0 : 0.4 }}
+            transition={{ delay: reduced ? 0 : 0.45, duration: reduced ? 0 : 0.4 }}
           >
             <ArrowDown className="size-4" aria-hidden />
-            About &amp; experience
+            Experience &amp; impact
           </motion.a>
         </div>
 
         <motion.aside
-          className="relative mx-auto w-full max-w-[200px] shrink-0 sm:max-w-[220px] lg:mx-0 lg:max-w-[240px]"
+          className="relative mx-auto w-full max-w-[210px] shrink-0 sm:max-w-[230px] lg:mx-0 lg:mt-1 lg:max-w-[248px] xl:max-w-[260px]"
           initial={reduced ? undefined : { opacity: 0, y: 24 }}
           animate={reduced ? undefined : { opacity: 1, y: 0 }}
           transition={{ ...transition, delay: reduced ? 0 : 0.14 }}

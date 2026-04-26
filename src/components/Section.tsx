@@ -21,13 +21,13 @@ export function Section({
     <section
       id={id}
       className={cn(
-        'scroll-mt-28 border-t border-border/60 py-20 sm:py-28',
+        'scroll-mt-28 border-t border-border/60 py-16 sm:py-24',
         className,
       )}
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal>
-          <div className="mb-12 max-w-2xl">
+          <div className="mb-9 max-w-2xl sm:mb-10">
             {eyebrow ? (
               <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.28em] text-accent">
                 {eyebrow}
