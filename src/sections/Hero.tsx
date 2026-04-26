@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { HeroPortrait } from '@/components/HeroPortrait'
 import { HeroShimmerName } from '@/components/HeroShimmerName'
 import { ProfileIconLinks } from '@/components/ProfileIconLinks'
-import { heroAtAGlance, person } from '@/data/site'
+import { person } from '@/data/site'
 
 export function Hero() {
   const reduced = useReducedMotion()
@@ -58,30 +58,10 @@ export function Hero() {
           </motion.p>
 
           <motion.div
-            className="mt-5 grid gap-2.5 rounded-xl border border-border/70 bg-card/40 px-4 py-3 backdrop-blur-sm sm:grid-cols-3 sm:gap-3 sm:px-4 sm:py-3.5"
-            initial={reduced ? undefined : { opacity: 0, y: 12 }}
-            animate={reduced ? undefined : { opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduced ? 0 : 0.24 }}
-            aria-label="At a glance"
-          >
-            {heroAtAGlance.map((row) => (
-              <div
-                key={row.label}
-                className="min-w-0 border-border/40 pb-2 last:border-0 last:pb-0 sm:border-b-0 sm:border-r sm:pb-0 sm:pr-4 last:sm:border-r-0 last:sm:pr-0"
-              >
-                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
-                  {row.label}
-                </p>
-                <p className="mt-1 text-sm font-medium leading-snug text-foreground sm:text-base">{row.value}</p>
-              </div>
-            ))}
-          </motion.div>
-
-          <motion.div
             className="mt-6"
             initial={reduced ? undefined : { opacity: 0, y: 12 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduced ? 0 : 0.28 }}
+            transition={{ ...transition, delay: reduced ? 0 : 0.24 }}
           >
             <ProfileIconLinks />
           </motion.div>

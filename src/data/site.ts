@@ -14,13 +14,6 @@ export const person = {
   location: 'Austin, TX, USA',
 } as const
 
-/** Short facts under the hero—reduces empty space and orients first-time visitors */
-export const heroAtAGlance = [
-  { label: 'Employer', value: 'Q2 Software · Austin' },
-  { label: 'Scope', value: 'Commercial banking QE' },
-  { label: 'Signature work', value: 'TestMate AI · ATF · CI/CD' },
-] as const
-
 export const education = [
   {
     school: 'Texas State University',
@@ -52,63 +45,84 @@ export const graduateAppointments = [
   },
 ] as const
 
-/** Grouped for scanning; full tool list stays on the PDF résumé */
+/**
+ * Mirrors the résumé “Technical Skills” section so the site and PDF stay aligned.
+ * Chips are exhaustive for that block; role bullets may still mention extra context.
+ */
 export const skillGroups = [
   {
-    title: 'Automation & APIs',
+    title: 'Programming & scripting / infrastructure config',
     items: [
-      'Selenium & Page Object patterns',
-      'Appium (iOS / Android)',
-      'REST / ReadyAPI / Postman',
-      'End-to-end & integration flows',
-      'Visual regression (Needle)',
-      'Hybrid frameworks',
+      'Python',
+      'Java',
+      'Groovy',
+      'SQL',
+      'HCL (HashiCorp Configuration Language)',
+      'YAML',
+      'FastAPI',
     ],
   },
   {
-    title: 'CI/CD, cloud & delivery',
+    title: 'Frameworks & tools',
     items: [
-      'Jenkins (pipelines, Groovy)',
+      'Selenium',
+      'Page Object patterns',
+      'Appium',
+      'ReadyAPI',
+      'Postman',
+      'Nomad',
+      'Jenkins',
+      'GitLab',
       'GitLab CI',
-      'Docker & Selenium Grid',
+      'Docker',
+      'Selenium Grid',
+      'Amazon S3',
       'AWS (QA infrastructure)',
-      'Nomad (HCL)',
       'HashiCorp Vault',
       'JFrog Artifactory',
-      'Amazon S3',
+      'Maven',
+      'TestNG',
+      'unittest',
+      'Eclipse',
+      'PyCharm',
+      'JIRA',
+      'qTest',
+      'BrowserStack',
+      'Kobiton',
+      'HP ALM',
+      'Sauce Labs',
+      'Sourcetree',
+      'Git',
+      'Tortoise Git',
+      'Stack provisioning & configuration',
     ],
   },
   {
-    title: 'Languages & data',
-    items: ['Python', 'Java', 'Groovy', 'SQL', 'YAML', 'HCL', 'FastAPI'],
-  },
-  {
-    title: 'Quality & ways of working',
+    title: 'Testing technologies & methodologies',
     items: [
-      'Regression strategy & ownership',
-      'Test planning in Agile / Scrum',
+      'Hybrid automation framework development',
+      'UI & API automation',
+      'Mobile automation',
+      'Performance testing (Locust)',
+      'REST API testing',
+      'End-to-end & integration flows',
+      'Visual regression (Needle)',
+      'CI/CD',
+      'Agile / Scrum',
       'SDLC & STLC',
+      'Test strategy & planning',
+      'Regression strategy & ownership',
       'Risk-based testing',
       'Cross-team enablement',
     ],
   },
   {
-    title: 'AI-assisted engineering',
-    items: ['Claude & ChatGPT', 'Cursor', 'MCP', 'LLM-assisted test design'],
+    title: 'AI tools',
+    items: ['Claude', 'ChatGPT', 'Cursor', 'MCP', 'LLM-assisted test design'],
   },
   {
-    title: 'Collaboration & tooling',
-    items: [
-      'JIRA',
-      'qTest',
-      'BrowserStack',
-      'Kobiton',
-      'Sauce Labs',
-      'TestNG',
-      'Maven',
-      'Git',
-      'Eclipse / PyCharm',
-    ],
+    title: 'Operating systems',
+    items: ['macOS', 'Windows', 'Linux'],
   },
 ] as const
 

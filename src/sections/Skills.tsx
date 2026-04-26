@@ -2,14 +2,13 @@ import { Reveal } from '@/components/Reveal'
 import { Section } from '@/components/Section'
 import { skillGroups } from '@/data/site'
 
-/** Bento spans for six skill groups (full-width layout only) */
+/** Bento spans for skill groups (full-width layout only); index maps to `skillGroups` */
 const layouts: readonly string[] = [
+  'sm:col-span-2 lg:col-span-2',
   'sm:col-span-2 lg:col-span-2 lg:row-span-2',
   'sm:col-span-2 lg:col-span-2',
-  'sm:col-span-2 lg:col-span-2',
-  'sm:col-span-1 lg:col-span-1',
-  'sm:col-span-1 lg:col-span-1',
-  'sm:col-span-2 lg:col-span-2',
+  'sm:col-span-2 lg:col-span-1',
+  'sm:col-span-2 lg:col-span-1',
 ]
 
 type SkillsProps = {
@@ -34,15 +33,16 @@ export function Skills({ variant = 'full', containWidth }: SkillsProps) {
             Skills
           </h2>
           <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
-            Compact rail view of the same groups (full bento on smaller breakpoints). Full tool list on
-            the résumé PDF.
+            Same five groups as the full panel—aligned with the Technical Skills block on the résumé PDF.
           </p>
         </div>
         <div className="space-y-3.5">
           {skillGroups.map((group, i) => (
             <Reveal key={group.title} delay={i * 0.04}>
               <div className="rounded-xl border border-border/80 bg-card/50 p-4 shadow-card backdrop-blur-sm transition-shadow hover:border-accent/20">
-                <h3 className="text-sm font-semibold tracking-tight text-foreground">{group.title}</h3>
+                <h3 className="text-sm font-semibold leading-snug tracking-tight text-pretty text-foreground">
+                  {group.title}
+                </h3>
                 <ul className="mt-3 flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <li
@@ -66,7 +66,7 @@ export function Skills({ variant = 'full', containWidth }: SkillsProps) {
       id="skills-panel"
       eyebrow="Capabilities"
       title="Skills"
-      description="Grouped by how I apply them day to day. The PDF résumé still has the full tool inventory for recruiters and ATS."
+      description="Grouped like the résumé Technical Skills section—languages, frameworks, testing practice, AI tools, and OS—so nothing important is only on the PDF."
       containWidth={containWidth ?? true}
     >
       <div className="grid auto-rows-min gap-4 sm:grid-cols-2 lg:grid-flow-dense lg:grid-cols-4">
@@ -77,7 +77,9 @@ export function Skills({ variant = 'full', containWidth }: SkillsProps) {
             className={layouts[i] ?? 'sm:col-span-2 lg:col-span-2'}
           >
             <div className="flex h-full min-h-[130px] flex-col rounded-2xl border border-border/80 bg-card/50 p-6 shadow-card backdrop-blur-sm transition-shadow duration-300 hover:shadow-glow lg:min-h-0">
-              <h3 className="text-base font-semibold tracking-tight text-foreground">{group.title}</h3>
+              <h3 className="text-base font-semibold leading-snug tracking-tight text-pretty text-foreground">
+                {group.title}
+              </h3>
               <ul className="mt-4 flex flex-wrap content-start gap-2">
                 {group.items.map((item) => (
                   <li
