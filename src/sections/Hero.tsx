@@ -50,7 +50,7 @@ export function Hero() {
             {person.title}
           </motion.p>
           <motion.p
-            className="mt-3 max-w-xl text-[0.95rem] leading-relaxed text-muted-foreground sm:text-base"
+            className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-[1.0625rem]"
             initial={reduced ? undefined : { opacity: 0, y: 16 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduced ? 0 : 0.22 }}
@@ -70,8 +70,10 @@ export function Hero() {
                 key={row.label}
                 className="min-w-0 border-border/40 pb-2 last:border-0 last:pb-0 sm:border-b-0 sm:border-r sm:pb-0 sm:pr-4 last:sm:border-r-0 last:sm:pr-0"
               >
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground">{row.label}</p>
-                <p className="mt-1 text-sm font-medium leading-snug text-foreground">{row.value}</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
+                  {row.label}
+                </p>
+                <p className="mt-1 text-sm font-medium leading-snug text-foreground sm:text-base">{row.value}</p>
               </div>
             ))}
           </motion.div>

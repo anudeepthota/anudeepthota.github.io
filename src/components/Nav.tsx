@@ -24,7 +24,7 @@ export function Nav() {
             <li key={link.label}>
               <a
                 href={link.href}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors duration-200 ease-out hover:bg-white/[0.04] hover:text-foreground"
+                className="rounded-lg px-3 py-2 text-[0.9375rem] font-medium text-muted-foreground transition-colors duration-200 ease-out hover:bg-white/[0.04] hover:text-foreground sm:text-base"
               >
                 {link.label}
               </a>
@@ -59,7 +59,7 @@ export function Nav() {
               <li key={`${link.label}-mobile`}>
                 <a
                   href={href}
-                  className="block rounded-lg px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-white/[0.05]"
+                  className="block rounded-lg px-3 py-2.5 text-base font-medium text-foreground transition-colors hover:bg-white/[0.05]"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}

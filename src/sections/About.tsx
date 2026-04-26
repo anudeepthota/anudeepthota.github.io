@@ -14,7 +14,7 @@ export function About() {
       <div className="grid gap-6 lg:grid-cols-12 lg:items-start">
         <Reveal className="lg:col-span-7">
           <div className="rounded-2xl border border-border/80 bg-card/60 p-7 shadow-card backdrop-blur-sm sm:p-9">
-            <div className="space-y-5 text-base leading-relaxed text-muted-foreground sm:text-[1.05rem]">
+            <div className="space-y-5 text-[1.0625rem] leading-relaxed text-muted-foreground sm:text-lg">
               <p>
                 At <strong className="font-semibold text-foreground">Q2 Software</strong> I focus on
                 commercial digital banking: ETMS, wires, bulk approvals, and related flows. I extend
@@ -47,11 +47,13 @@ export function About() {
         <Reveal className="lg:col-span-5" delay={0.06}>
           <div className="flex flex-col gap-5 lg:border-l lg:border-border/60 lg:pl-8">
             <div className="rounded-2xl border border-border/80 bg-gradient-to-br from-accent/15 via-card/80 to-card p-6 shadow-card backdrop-blur-sm">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">What I lean on</p>
-              <p className="mt-3 text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent sm:text-[0.8125rem]">
+                What I lean on
+              </p>
+              <p className="mt-3 text-2xl font-semibold tracking-tight text-foreground sm:text-[1.65rem]">
                 Ownership, clarity, speed
               </p>
-              <ul className="mt-3 space-y-2.5 text-sm leading-relaxed text-muted-foreground">
+              <ul className="mt-3 space-y-2.5 text-base leading-relaxed text-muted-foreground">
                 <li className="flex gap-2">
                   <span className="mt-2 size-1 shrink-0 rounded-full bg-accent/80" aria-hidden />
                   <span>Regression strategy across dependent systems—not only happy-path UI.</span>
@@ -67,16 +69,16 @@ export function About() {
               </ul>
             </div>
             <div className="rounded-2xl border border-border/80 bg-card/60 p-6 shadow-card backdrop-blur-sm">
-              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
+              <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground sm:text-[0.8125rem]">
                 Education
               </h3>
               <ul className="mt-4 space-y-5">
                 {education.map((e) => (
                   <li key={e.school} className="border-b border-border/60 pb-4 last:border-0 last:pb-0">
-                    <p className="font-semibold text-foreground">{e.school}</p>
-                    <p className="text-xs text-muted-foreground">{e.location}</p>
-                    <p className="mt-1 text-sm text-foreground/90">{e.degree}</p>
-                    <p className="text-xs text-muted-foreground">{e.dates}</p>
+                    <p className="text-lg font-semibold text-foreground">{e.school}</p>
+                    <p className="text-sm text-muted-foreground">{e.location}</p>
+                    <p className="mt-1 text-base text-foreground/90">{e.degree}</p>
+                    <p className="text-sm text-muted-foreground">{e.dates}</p>
                   </li>
                 ))}
               </ul>
@@ -84,7 +86,7 @@ export function About() {
                 <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
                   During my M.S. (Texas State)
                 </h4>
-                <ul className="mt-3 space-y-3 text-sm text-muted-foreground">
+                <ul className="mt-3 space-y-3 text-base text-muted-foreground">
                   {graduateAppointments.map((g) => (
                     <li key={`${g.role}-${g.dates}`}>
                       <p className="font-medium text-foreground/95">{g.role}</p>
