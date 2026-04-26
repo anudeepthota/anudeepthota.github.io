@@ -56,12 +56,20 @@ export function Hero() {
           >
             {person.tagline}
           </motion.p>
+          <motion.p
+            className="mt-3 max-w-xl text-base leading-relaxed text-foreground/80 sm:text-[1.0625rem]"
+            initial={reduced ? undefined : { opacity: 0, y: 14 }}
+            animate={reduced ? undefined : { opacity: 1, y: 0 }}
+            transition={{ ...transition, delay: reduced ? 0 : 0.26 }}
+          >
+            {person.skillsHighlight}
+          </motion.p>
 
           <motion.div
             className="mt-6"
             initial={reduced ? undefined : { opacity: 0, y: 12 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduced ? 0 : 0.24 }}
+            transition={{ ...transition, delay: reduced ? 0 : 0.3 }}
           >
             <ProfileIconLinks />
           </motion.div>

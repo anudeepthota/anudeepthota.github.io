@@ -2,9 +2,12 @@ export const person = {
   name: 'Anudeep Thota',
   /** Matches LinkedIn headline (SDET) and full role at Q2 */
   title: 'Software Development Engineer in Test (SDET)',
-  /** One line for visitors scanning the hero */
+  /** Hero: trajectory and scope—complements the Skills section */
   tagline:
-    'I design and ship automation for commercial banking at Q2—UI, API, and mobile—with ownership of regression across linked systems and modern CI/CD on AWS.',
+    'Austin-based SDET at Q2 on commercial digital banking: I design UI, API, and mobile automation, own regression across linked platforms, and deliver on Jenkins and GitLab CI/CD with Docker, Nomad, and AWS-backed QA infrastructure. Earlier roles include large-scale hybrid Selenium and Appium frameworks at Mast Global (retail and HR) and UI plus API automation for ACA-aligned healthcare billing at Cognizant.',
+  /** Hero: concrete stack and differentiators */
+  skillsHighlight:
+    'I work primarily in Python, Java, and Groovy with Selenium, Page Objects, Appium, ReadyAPI, and Postman—plus TestNG, Maven, and repeatable pipelines. I co-architected TestMate AI for LLM-generated tests and stay hands-on with Claude, Cursor, and MCP alongside Agile planning, risk-based regression, and disciplined SDLC/STLC.',
   phone: '+1 (469) 834-7396',
   email: 'info2anudeepthota@gmail.com',
   linkedin: 'https://www.linkedin.com/in/anudeepthota/',
