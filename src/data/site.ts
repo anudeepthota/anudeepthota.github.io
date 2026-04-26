@@ -9,6 +9,8 @@ export const person = {
   email: 'info2anudeepthota@gmail.com',
   linkedin: 'https://www.linkedin.com/in/anudeepthota/',
   github: 'https://github.com/anudeepthota',
+  /** Public PDF served from site root */
+  resumePdf: '/resume.pdf',
   location: 'Austin, TX, USA',
 } as const
 

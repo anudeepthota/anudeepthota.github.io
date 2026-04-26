@@ -1,8 +1,8 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowDown, Download, Mail } from 'lucide-react'
+import { ArrowDown } from 'lucide-react'
 import { HeroPortrait } from '@/components/HeroPortrait'
 import { HeroShimmerName } from '@/components/HeroShimmerName'
-import { Button } from '@/components/ui/button'
+import { ProfileIconLinks } from '@/components/ProfileIconLinks'
 import { heroAtAGlance, person } from '@/data/site'
 
 export function Hero() {
@@ -79,23 +79,12 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            className="mt-6 flex flex-wrap gap-3"
+            className="mt-6"
             initial={reduced ? undefined : { opacity: 0, y: 12 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduced ? 0 : 0.28 }}
           >
-            <Button asChild size="lg" className="rounded-xl shadow-glow">
-              <a href="#contact">
-                <Mail className="size-4" aria-hidden />
-                Contact
-              </a>
-            </Button>
-            <Button variant="outline" size="lg" className="rounded-xl" asChild>
-              <a href="/resume.pdf" download>
-                <Download className="size-4" aria-hidden />
-                Résumé PDF
-              </a>
-            </Button>
+            <ProfileIconLinks />
           </motion.div>
           <motion.a
             href="#experience"

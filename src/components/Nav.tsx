@@ -1,5 +1,6 @@
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import { ProfileIconLinks } from '@/components/ProfileIconLinks'
 import { cn } from '@/lib/utils'
 import { navLinks } from '@/data/site'
 
@@ -9,39 +10,41 @@ export function Nav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/75 shadow-card backdrop-blur-xl supports-[backdrop-filter]:bg-background/55">
       <nav
-        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6"
+        className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:gap-3 sm:px-6"
         aria-label="Primary"
       >
         <a
           href="#hero"
-          className="text-sm font-bold uppercase tracking-[0.35em] text-foreground/90 transition-opacity hover:opacity-80"
+          className="shrink-0 text-sm font-bold uppercase tracking-[0.35em] text-foreground/90 transition-opacity hover:opacity-80"
         >
           AT
         </a>
 
-        <ul className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                className="rounded-lg px-3 py-2 text-[0.9375rem] font-medium text-muted-foreground transition-colors duration-200 ease-out hover:bg-white/[0.04] hover:text-foreground sm:text-base"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <button
-          type="button"
-          className="inline-flex rounded-lg p-2 text-foreground transition-colors hover:bg-white/[0.06] md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="size-6" aria-hidden /> : <Menu className="size-6" aria-hidden />}
-          <span className="sr-only">Toggle menu</span>
-        </button>
+        <div className="flex min-w-0 flex-1 items-center justify-end gap-1 sm:gap-2 md:gap-3">
+          <ul className="hidden items-center gap-1 md:flex">
+            {navLinks.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  className="rounded-lg px-3 py-2 text-[0.9375rem] font-medium text-muted-foreground transition-colors duration-200 ease-out hover:bg-white/[0.04] hover:text-foreground sm:text-base"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ProfileIconLinks className="shrink-0" />
+          <button
+            type="button"
+            className="inline-flex shrink-0 rounded-lg p-2 text-foreground transition-colors hover:bg-white/[0.06] md:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="size-6" aria-hidden /> : <Menu className="size-6" aria-hidden />}
+            <span className="sr-only">Toggle menu</span>
+          </button>
+        </div>
       </nav>
 
       <div
