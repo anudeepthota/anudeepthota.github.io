@@ -1,5 +1,4 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
 import { HeroPortrait } from '@/components/HeroPortrait'
 import { HeroShimmerName } from '@/components/HeroShimmerName'
 import { ProfileIconLinks } from '@/components/ProfileIconLinks'
@@ -86,16 +85,6 @@ export function Hero() {
           >
             <ProfileIconLinks />
           </motion.div>
-          <motion.a
-            href="#experience"
-            className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-accent"
-            initial={reduced ? undefined : { opacity: 0 }}
-            animate={reduced ? undefined : { opacity: 1 }}
-            transition={{ delay: reduced ? 0 : 0.45, duration: reduced ? 0 : 0.4 }}
-          >
-            <ArrowDown className="size-4" aria-hidden />
-            Experience &amp; impact
-          </motion.a>
         </div>
 
         <div className="mt-2 flex justify-center md:hidden">
