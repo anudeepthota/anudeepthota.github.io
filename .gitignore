@@ -28,6 +28,10 @@ dist-ssr
 tmp
 .cursor
 
+# Never commit SSH keys (if generated inside repo by mistake)
+github_personal
+github_personal.pub
+
 # Duplicate of files in public/ (keep repo smaller)
 /Anudeep Thota_R5CA3077 (1).jpg
 /Anudeep_Sr_Quality_Automation_Engineer_Resume.pdf
