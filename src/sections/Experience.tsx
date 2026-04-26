@@ -10,6 +10,7 @@ export function Experience() {
       title="Experience"
       description="Newest first—each card starts with how the role fits the bigger picture, then concrete outcomes. Open the résumé PDF for the exhaustive list."
       containWidth={false}
+      className="pt-8 pb-16 sm:pt-10 sm:pb-24"
     >
       <ol className="space-y-7 sm:space-y-8">
         {experience.map((job, i) => (

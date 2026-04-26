@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pb-10 pt-20 sm:pb-12 sm:pt-24 lg:pb-14 lg:pt-24"
+      className="relative overflow-hidden pb-6 pt-20 sm:pb-8 sm:pt-24 lg:pb-8 lg:pt-24"
     >
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_65%_45%_at_0%_38%,hsl(217_72%_52%/0.14),transparent_58%)]"
