@@ -11,13 +11,18 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pb-10 pt-20 sm:pb-12 sm:pt-24 lg:pb-14 lg:pt-24"
+      className="relative flex min-h-0 flex-col overflow-hidden pb-10 pt-20 sm:pb-12 sm:pt-24 lg:min-h-[min(72vh,640px)] lg:pb-16 lg:pt-24"
     >
       <div
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_65%_45%_at_0%_38%,hsl(217_72%_52%/0.14),transparent_58%)]"
         aria-hidden
       />
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col gap-7 px-4 sm:gap-8 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
+      {/* Soft wash in the lower-right so the portrait column doesn’t read as “dead” space */}
+      <div
+        className="pointer-events-none absolute -bottom-8 right-0 h-56 w-[min(100%,22rem)] rounded-full bg-gradient-to-tl from-accent/[0.07] via-violet-500/[0.04] to-transparent blur-2xl lg:h-72 lg:w-80"
+        aria-hidden
+      />
+      <div className="relative mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col gap-7 px-4 sm:gap-8 sm:px-6 lg:flex-row lg:items-stretch lg:justify-between lg:gap-10">
         <div className="min-w-0 flex-1 lg:max-w-[min(100%,36rem)] xl:max-w-xl">
           <motion.p
             className="text-xs font-bold uppercase tracking-[0.28em] text-accent"
@@ -107,7 +112,7 @@ export function Hero() {
         </div>
 
         <motion.aside
-          className="relative mx-auto w-full max-w-[210px] shrink-0 sm:max-w-[230px] lg:mx-0 lg:mt-1 lg:max-w-[248px] xl:max-w-[260px]"
+          className="relative mx-auto flex w-full max-w-[210px] shrink-0 flex-col justify-end sm:max-w-[230px] lg:mx-0 lg:max-w-[248px] xl:max-w-[260px]"
           initial={reduced ? undefined : { opacity: 0, y: 24 }}
           animate={reduced ? undefined : { opacity: 1, y: 0 }}
           transition={{ ...transition, delay: reduced ? 0 : 0.14 }}
