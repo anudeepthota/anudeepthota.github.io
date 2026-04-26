@@ -5,15 +5,18 @@ on:
     branches: ['main']
   workflow_dispatch:
 
+# Artifact deploy + API switch away from "main / (root)" (which serves /src/main.tsx → blank).
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: 'pages'
   cancel-in-progress: true
 
 jobs:
-  build-and-publish:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,11 +39,39 @@ jobs:
           grep -q 'src="/assets/index-' dist/index.html || (echo "dist/index.html missing hashed JS bundle" && exit 1)
           ! grep -q '/src/main.tsx' dist/index.html || (echo "dist still references dev /src/main.tsx — build misconfigured" && exit 1)
 
-      # Pushes dist/ to branch `gh-pages`. In repo Settings → Pages, choose that branch + /(root).
-      # (Publishing main’s root serves source index.html with /src/main.tsx → blank site.)
-      - name: Publish dist to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          force_orphan: true
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Publishes dist via Actions so the live site is NOT "main / (root)" (dev index).
+      - name: Point Pages at GitHub Actions deployments
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          REPO="${{ github.repository }}"
+          if gh api --method GET "repos/${REPO}/pages" -H "Accept: application/vnd.github+json" >/tmp/pages.json 2>/dev/null; then
+            echo "Updating Pages to build_type=workflow (artifact from this workflow)."
+            echo '{"build_type":"workflow"}' | gh api --method PUT "repos/${REPO}/pages" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              --input -
+          else
+            echo "Creating Pages site with GitHub Actions as the publisher."
+            echo '{"build_type":"workflow","source":{"branch":"main","path":"/"}}' | gh api --method POST "repos/${REPO}/pages" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              --input -
+          fi
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
