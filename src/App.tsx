@@ -69,7 +69,9 @@ export default function App() {
             <div className="md:hidden">
               <Skills variant="full" containWidth={false} />
             </div>
-            <Education />
+            <div id="education" className="scroll-mt-28 md:hidden">
+              <Education variant="page" />
+            </div>
             <About />
             <Certifications />
             <Projects />
@@ -78,12 +80,15 @@ export default function App() {
           <aside
             id="skills"
             className="relative hidden scroll-mt-28 md:col-span-4 md:block md:pt-24"
-            aria-label="Portrait and skills"
+            aria-label="Portrait, skills, and education"
           >
             {/* pt mirrors Hero so the rail clears the fixed header and lines up with hero copy */}
             <div className="sticky top-24 space-y-10 border-l border-border/60 pb-16 pl-6 md:pl-7 lg:pl-8">
               <HeroPortrait variant="rail" />
               <Skills variant="rail" />
+              <div id="education-desktop" className="scroll-mt-28 border-t border-border/60 pt-10">
+                <Education variant="rail" />
+              </div>
             </div>
           </aside>
         </div>

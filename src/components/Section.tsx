@@ -12,7 +12,8 @@ export function Section({
   /** When nested in a padded column (e.g. desktop main rail), avoid double horizontal padding */
   containWidth = true,
 }: {
-  id: string
+  /** Omit when a parent wrapper carries the anchor id (e.g. responsive duplicate layouts). */
+  id?: string
   eyebrow?: string
   title: string
   description?: string
@@ -22,7 +23,7 @@ export function Section({
 }) {
   return (
     <section
-      id={id}
+      {...(id ? { id } : {})}
       className={cn(
         'scroll-mt-28 border-t border-border/60 py-16 sm:py-24',
         className,
