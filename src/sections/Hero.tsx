@@ -91,18 +91,18 @@ export function Hero() {
           aria-label="Portrait"
         >
           <div
-            className="pointer-events-none absolute -inset-2 rounded-2xl bg-gradient-to-br from-accent/12 via-transparent to-violet-500/10 blur-lg"
+            className="pointer-events-none absolute -inset-2 rounded-full bg-gradient-to-br from-accent/12 via-transparent to-violet-500/10 blur-lg"
             aria-hidden
           />
-          <figure className="relative">
-            <div className="rounded-xl bg-gradient-to-br from-white/12 via-white/[0.04] to-accent/18 p-px shadow-card">
-              <div className="overflow-hidden rounded-xl bg-card ring-1 ring-white/[0.06]">
+          <figure className="relative aspect-square w-full">
+            <div className="rounded-full bg-gradient-to-br from-white/12 via-white/[0.04] to-accent/18 p-[2px] shadow-card">
+              <div className="aspect-square size-full overflow-hidden rounded-full bg-card ring-1 ring-white/[0.06]">
                 <img
                   src="/profile.jpg"
                   alt="Portrait of Anudeep Thota"
-                  width={280}
-                  height={360}
-                  className="aspect-[4/5] w-full object-cover object-[center_14%] [transform:scale(1.07)]"
+                  width={320}
+                  height={320}
+                  className="size-full rounded-full object-cover object-[center_15%] [transform:scale(1.08)]"
                   decoding="async"
                   fetchPriority="high"
                 />
