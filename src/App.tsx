@@ -1,4 +1,4 @@
-import { SparkleField } from '@/components/SparkleField'
+import { SparklesCore } from '@/components/ui/sparkles'
 import { GradientDots } from '@/components/ui/gradient-dots'
 import { Nav } from '@/components/Nav'
 import { About } from '@/sections/About'
@@ -40,7 +40,18 @@ export default function App() {
           colorCycleDuration={14}
         />
       </div>
-      <SparkleField />
+      <div className="pointer-events-none fixed inset-0 z-0" aria-hidden>
+        <SparklesCore
+          id="site-sparkles"
+          background="transparent"
+          minSize={0.35}
+          maxSize={1.15}
+          particleDensity={85}
+          className="h-full min-h-dvh w-full"
+          particleColor="#e8eef8"
+          speed={2.5}
+        />
+      </div>
       <a
         href="#main"
         className="absolute left-[-9999px] top-0 z-[100] rounded-md bg-accent px-4 py-2 text-sm font-medium text-accent-foreground shadow focus:left-4 focus:top-4"
@@ -48,7 +59,7 @@ export default function App() {
         Skip to content
       </a>
       <Nav />
-      <main id="main">
+      <main id="main" className="relative z-10">
         <Hero />
         <About />
         <Skills />
@@ -57,7 +68,7 @@ export default function App() {
         <Projects />
         <Contact />
       </main>
-      <footer className="border-t border-border/80 py-12 text-center text-sm text-muted-foreground">
+      <footer className="relative z-10 border-t border-border/80 py-12 text-center text-sm text-muted-foreground">
         <p className="mx-auto max-w-md leading-relaxed">
           © {new Date().getFullYear()} Anudeep Thota. React, TypeScript, Tailwind CSS, and Framer
           Motion on GitHub Pages.
