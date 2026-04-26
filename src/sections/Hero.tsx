@@ -53,7 +53,7 @@ export function Hero() {
           </motion.p>
 
           <motion.p
-            className="mt-6 max-w-lg whitespace-pre-line text-lg font-semibold leading-snug tracking-tight text-foreground sm:text-xl sm:leading-snug"
+            className="mt-6 max-w-full whitespace-pre-line text-base font-normal leading-relaxed tracking-normal text-foreground/88 sm:mt-7 sm:max-w-xl sm:text-[1.0625rem] sm:leading-[1.72]"
             initial={reduced ? undefined : { opacity: 0, y: 12 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduced ? 0 : 0.16 }}

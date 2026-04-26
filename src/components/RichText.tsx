@@ -1,10 +1,10 @@
 type RichTextVariant = 'default' | 'heroMetric'
 
 const metricClassDefault =
-  'inline-flex items-center rounded-md border border-accent/45 bg-accent/[0.18] px-2 py-0.5 text-[0.9375rem] font-extrabold tabular-nums tracking-tight text-accent shadow-sm shadow-accent/10 sm:px-2.5 sm:py-1 sm:text-lg'
+  'inline-flex items-center rounded-md border border-accent/45 bg-accent/[0.18] px-2 py-0.5 text-sm font-bold tabular-nums tracking-tight text-accent shadow-sm shadow-accent/10 sm:px-2.5 sm:py-1 sm:text-[0.9375rem]'
 
 const metricClassLead =
-  'inline-flex max-w-full items-center rounded-lg border border-accent/50 bg-accent/[0.22] px-2.5 py-1 text-base font-extrabold tabular-nums tracking-tight text-accent shadow-md shadow-accent/15 sm:px-3.5 sm:py-1.5 sm:text-xl'
+  'inline-flex max-w-full items-center rounded-lg border border-accent/50 bg-accent/[0.2] px-2.5 py-1 text-sm font-bold tabular-nums tracking-tight text-accent shadow-sm shadow-accent/12 sm:px-3 sm:py-1 sm:text-base'
 
 /**
  * Renders `**like this**` as bold (default) or as high-visibility metric pills (heroMetric).
