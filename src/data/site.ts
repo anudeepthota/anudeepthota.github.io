@@ -4,10 +4,10 @@ export const person = {
   title: 'Software Development Engineer in Test (SDET)',
   /** Hero: trajectory and scope—complements the Skills section */
   tagline:
-    'Austin-based SDET at Q2 on commercial digital banking: I design UI, API, and mobile automation, own regression across linked platforms, and deliver on Jenkins and GitLab CI/CD with Docker, Nomad, and AWS-backed QA infrastructure. Earlier roles include large-scale hybrid Selenium and Appium frameworks at Mast Global (retail and HR) and UI plus API automation for ACA-aligned healthcare billing at Cognizant.',
+    'SDET at Q2 (Austin)—commercial digital banking QE: WebDriver- and Appium-backed suites with Page Object layering, plus REST-side coverage, gating releases on regression across coupled product surfaces. CI executed on Jenkins and GitLab (Groovy job logic), Dockerized agents, Nomad-scheduled workloads, and AWS-hosted QA estates. Previously: hybrid Java/Selenium/Appium harnesses with device-farm and grid parallelism at Mast Global (retail/HR); UI and API automation for ACA-constrained healthcare billing flows at Cognizant.',
   /** Hero: concrete stack and differentiators */
   skillsHighlight:
-    'I work primarily in Python, Java, and Groovy with Selenium, Page Objects, Appium, ReadyAPI, and Postman—plus TestNG, Maven, and repeatable pipelines. I co-architected TestMate AI for LLM-generated tests and stay hands-on with Claude, Cursor, and MCP alongside Agile planning, risk-based regression, and disciplined SDLC/STLC.',
+    'Stack depth: Python, Java, Groovy; Selenium WebDriver, Appium, ReadyAPI/Postman for contract and integration checks; TestNG and Maven as test runners under versioned CI. Co-architected TestMate AI—embedding-backed, LLM-driven synthesis of executable tests. Engineering workflow layers in Claude, Cursor, ChatGPT, and MCP alongside risk-ranked regression design, backlog-driven test ownership, and SDLC/STLC evidence for release sign-off.',
   phone: '+1 (469) 834-7396',
   email: 'info2anudeepthota@gmail.com',
   linkedin: 'https://www.linkedin.com/in/anudeepthota/',
