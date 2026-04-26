@@ -8,8 +8,8 @@ export const person = {
   /** 3 scannable proof points for the hero */
   impactBullets: [
     'Scaled automated regression across multiple commercial-banking surfaces before production deploys.',
-    'Raised regression coverage ~65% and cut manual effort ~40% in prior high-volume automation roles.',
-    'CI/CD validation across dev, staging, and production-like environments on Jenkins, GitLab, and AWS-backed QA stacks.',
+    'Raised regression coverage **~65%** and cut manual effort **~40%** in prior high-volume automation roles.',
+    'CI/CD validation from dev through production-like QA stacks—consistent signals for release decisions.',
   ] as const,
   /** One-line credibility (replaces long technical hero paragraphs) */
   credibilityLine: 'SDET at Q2 · Commercial digital banking · Austin, TX',
@@ -157,41 +157,28 @@ export const experience: ExperienceEntry[] = [
     role: 'Software Development Engineer in Test — Commercial Otters, Quality Enablement',
     dates: 'June 2021 – Present',
     blurb:
-      'Owns release-grade automation for commercial digital banking—UI, API, and mobile—with regression across coupled platforms and CI/CD on AWS-backed QA.',
+      'Release-grade automation for commercial digital banking—UI, API, and mobile—with regression across coupled platforms, CI/CD on AWS-backed QA, and occasional deep dives (Contraster, stack migrations, mobile hardening).',
     highlights: [
       {
-        text: 'Lead UI automation for commercial flows (ETMS, wires, bulk approvals) using Page Objects so teams ship predictable, maintainable releases.',
-        metrics: ['Release gate'],
+        text: 'Lead enterprise UI automation (ETMS, wires, bulk approvals) with Page Objects, and own regression across interconnected banking surfaces before deploy—aligned early with Scrum on test strategy.',
+        metrics: ['Release gate', 'Multi-surface'],
       },
       {
-        text: 'Own regression across interconnected digital banking surfaces before deploy; partner with Scrum teams on strategy early in the cycle.',
-        metrics: ['Multi-platform'],
+        text: 'Co-architected **TestMate AI**: embeddings and LLMs turn requirements and code context into executable tests adopted org-wide.',
+        metrics: ['Org-wide'],
       },
       {
-        text: 'Validated end-to-end ACH and money-movement paths across linked systems; documented QA configs so runs stay reproducible.',
+        text: 'Validated end-to-end **ACH** and money-movement paths across linked systems; documented QA configs so runs stay reproducible.',
       },
       {
-        text: 'Co-architected TestMate AI—embeddings and LLMs turn requirements and code context into executable tests.',
-        metrics: ['Org-wide adoption'],
+        text: 'Shipped **ReadyAPI** mocks for Okta SSO and consumer payments so teams validate integrations without environment gridlock.',
       },
       {
-        text: 'Shipped ReadyAPI mocks for Okta SSO and consumer payments so teams test integrations in isolation without blocking environments.',
+        text: 'Extended **Q2 ATF** (Python) across UI, API, and mobile on a Dockerized Selenium Grid for parallel, reliable execution.',
       },
       {
-        text: 'Extended Q2 ATF (Python) across UI, API, and mobile with Dockerized Selenium Grid for parallel, reliable execution.',
-      },
-      {
-        text: 'Operated Jenkins and GitLab pipelines across dev, staging, and prod-like stacks; supported QA migration to AWS with Nomad and HCL.',
-        metrics: ['3+ env tiers'],
-      },
-      {
-        text: 'Evolved Q2 Contraster for upgrade validation with centralized S3-backed config—less friction for Implementation teams.',
-      },
-      {
-        text: 'Led Carbon→FIC migration support: impact analysis, pipeline and API updates, and enablement for dependent teams.',
-      },
-      {
-        text: 'Hardened Appium on iOS and Android; ran enablement on Page Factory and “automation goalie” support for partner teams.',
+        text: 'Operated **Jenkins** and **GitLab** pipelines across dev → staging → prod-like stacks; supported AWS/Nomad QA migration with HCL-driven changes.',
+        metrics: ['3+ tiers'],
       },
     ],
   },
@@ -225,12 +212,12 @@ export const experience: ExperienceEntry[] = [
     blurb: 'Retail / HR mobile and web automation at scale with Jenkins-driven regression.',
     highlights: [
       {
-        text: 'Built a hybrid Java / Selenium / Appium harness on Sauce Labs and local devices—more scenarios automated with fewer flaky runs.',
-        metrics: ['+65% coverage', '~40% less manual'],
+        text: 'Built a hybrid Java / Selenium / Appium harness on Sauce Labs and local devices—**+65%** regression coverage and **~40%** less manual execution.',
+        metrics: ['+65%', '~40% manual'],
       },
       {
         text: 'Introduced Jenkins “One-Touch Automation” for unattended E2E so release validation stopped being an overnight bottleneck.',
-        metrics: ['~50% faster validation'],
+        metrics: ['~50% faster'],
       },
       {
         text: 'Authored 200+ reusable HR scripts (Core HR, Benefits, leave, talent)—shared building blocks for the whole QA org.',
@@ -248,8 +235,8 @@ export const experience: ExperienceEntry[] = [
     blurb: 'ACA-compliant healthcare billing automation with strong API and regression coverage.',
     highlights: [
       {
-        text: 'Automated premiums, adjustments, payments, and reconciliation with UI + API coverage—fewer financial defects escaping to prod.',
-        metrics: ['+60% regression', '~30% fewer defects'],
+        text: 'Automated premiums, adjustments, payments, and reconciliation with UI + API coverage—**+60%** regression depth and **~30%** fewer financial defects escaping to prod.',
+        metrics: ['+60%', '~30% defects'],
       },
       {
         text: 'Drove REST validation in Postman with risk-based suites and ALM traceability so audits and sprints stayed aligned.',

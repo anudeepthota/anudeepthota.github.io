@@ -1,5 +1,5 @@
 import { ChevronDown, ChevronUp } from 'lucide-react'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import { Reveal } from '@/components/Reveal'
 import { Section } from '@/components/Section'
 import { cn } from '@/lib/utils'
@@ -7,7 +7,7 @@ import { skillGroups } from '@/data/site'
 
 type SkillGroup = (typeof skillGroups)[number]
 
-const SKILL_CAP = 6
+const SKILL_CAP = 5
 
 /** Bento spans for skill groups (full-width layout only); index maps to `skillGroups` */
 const layouts: readonly string[] = [
@@ -37,7 +37,7 @@ function SkillChip({
   )
 }
 
-function SkillGroupItems({
+const SkillGroupItems = memo(function SkillGroupItems({
   group,
   compact,
 }: {
@@ -79,7 +79,7 @@ function SkillGroupItems({
       ) : null}
     </div>
   )
-}
+})
 
 type SkillsProps = {
   variant?: 'full' | 'rail'
@@ -99,7 +99,7 @@ export function Skills({ variant = 'full', containWidth }: SkillsProps) {
             Skills
           </h2>
           <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
-            First {SKILL_CAP} chips per group—expand for the rest. Full inventory also on the résumé PDF.
+            Top {SKILL_CAP} chips per group—expand for the rest. Full inventory on the résumé PDF.
           </p>
         </div>
         <div className="space-y-3.5">
@@ -125,7 +125,7 @@ export function Skills({ variant = 'full', containWidth }: SkillsProps) {
       id="skills-panel"
       eyebrow="Capabilities"
       title="Skills"
-      description="Grouped for scanning—expand any category to see every chip. The résumé PDF still carries the full inventory for ATS."
+      description="Five highest-signal chips per category by default—expand for the full set. The résumé PDF still carries the complete inventory for ATS."
       containWidth={containWidth ?? true}
     >
       <div className="grid auto-rows-min gap-5 sm:grid-cols-2 lg:grid-flow-dense lg:grid-cols-4">

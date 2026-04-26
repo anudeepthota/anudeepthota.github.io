@@ -22,11 +22,10 @@ export function About() {
                 not an afterthought.
               </p>
               <p>
-                I co-architected <strong className="text-foreground">TestMate AI</strong> so requirements
-                and code context become executable checks faster. I also contribute to{' '}
-                <strong className="text-foreground">Q2 ATF</strong> and{' '}
-                <strong className="text-foreground">Q2 Contraster</strong>, and ship on Jenkins plus
-                AWS/Nomad-backed QA environments.
+                I co-architected <strong className="text-foreground">TestMate AI</strong> to shorten the
+                path from requirements to executable checks. I also ship on <strong className="text-foreground">Q2 ATF</strong>,{' '}
+                <strong className="text-foreground">Q2 Contraster</strong>, and Jenkins / AWS / Nomad-backed QA
+                environments.
               </p>
               <p>
                 Earlier: high-volume automation at <strong className="text-foreground">Mast Global</strong>{' '}

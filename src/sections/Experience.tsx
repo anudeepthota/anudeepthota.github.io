@@ -1,20 +1,24 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ChevronDown, ChevronUp } from 'lucide-react'
-import { useId, useState } from 'react'
+import { memo, useId, useState } from 'react'
 import { Reveal } from '@/components/Reveal'
+import { RichText } from '@/components/RichText'
 import { Section } from '@/components/Section'
 import { cn } from '@/lib/utils'
 import type { ExperienceEntry, ExperienceHighlight } from '@/data/site'
 import { experience } from '@/data/site'
 
-const HIGHLIGHT_PREVIEW = 4
+/** Matches max bullets per role on the site (~30% less density than résumé dump). */
+const HIGHLIGHT_PREVIEW = 6
 
 function HighlightRow({ item }: { item: ExperienceHighlight }) {
   return (
     <div className="flex gap-3.5">
       <span className="mt-2 size-1 shrink-0 rounded-full bg-accent/80" aria-hidden />
       <div className="min-w-0 flex-1 space-y-2">
-        <p className="text-[1.0625rem] leading-relaxed text-foreground/88 sm:text-base">{item.text}</p>
+        <p className="text-[1.0625rem] leading-relaxed text-foreground/88 sm:text-base">
+          <RichText text={item.text} />
+        </p>
         {item.metrics && item.metrics.length > 0 ? (
           <div className="flex flex-wrap gap-1.5">
             {item.metrics.map((m) => (
@@ -32,7 +36,7 @@ function HighlightRow({ item }: { item: ExperienceHighlight }) {
   )
 }
 
-function ExperienceJobCard({ job }: { job: ExperienceEntry }) {
+const ExperienceJobCard = memo(function ExperienceJobCard({ job }: { job: ExperienceEntry }) {
   const reduced = useReducedMotion()
   const listId = useId()
   const [expanded, setExpanded] = useState(false)
@@ -50,7 +54,7 @@ function ExperienceJobCard({ job }: { job: ExperienceEntry }) {
         'hover:border-accent/35 hover:shadow-lg hover:shadow-accent/[0.08]',
       )}
       whileHover={reduced ? undefined : { y: -3, scale: 1.01 }}
-      transition={{ type: 'spring', stiffness: 420, damping: 26 }}
+      transition={{ type: 'spring', stiffness: 440, damping: 26 }}
     >
       <div className="absolute left-7 top-0 hidden h-px w-12 bg-gradient-to-r from-accent/60 to-transparent sm:block" />
       <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
@@ -71,7 +75,7 @@ function ExperienceJobCard({ job }: { job: ExperienceEntry }) {
 
       <ul
         id={listId}
-        className="mt-6 space-y-4 border-t border-border/60 pt-6 text-muted-foreground sm:space-y-4"
+        className="mt-6 space-y-4 border-t border-border/60 pt-6 text-muted-foreground sm:space-y-[1.125rem]"
       >
         <AnimatePresence initial={false} mode="popLayout">
           {visible.map((h, idx) => (
@@ -81,7 +85,7 @@ function ExperienceJobCard({ job }: { job: ExperienceEntry }) {
               initial={reduced ? false : { opacity: 0, y: 6 }}
               animate={{ opacity: 1, y: 0 }}
               exit={reduced ? undefined : { opacity: 0, y: -4 }}
-              transition={{ duration: reduced ? 0 : 0.22, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: reduced ? 0 : 0.24, ease: [0.22, 1, 0.36, 1] }}
             >
               <HighlightRow item={h} />
             </motion.li>
@@ -112,7 +116,7 @@ function ExperienceJobCard({ job }: { job: ExperienceEntry }) {
       ) : null}
     </motion.li>
   )
-}
+})
 
 export function Experience() {
   return (
@@ -120,11 +124,11 @@ export function Experience() {
       id="experience"
       eyebrow="Timeline"
       title="Experience"
-      description="Outcome-first highlights—metrics where they matter. Expand long roles for detail; the résumé PDF remains the full record."
+      description="Six highest-signal outcomes per role—metrics bold in-line; chips flag themes. Expand when a role runs longer. Full detail stays on the résumé PDF."
       containWidth={false}
       className="pt-8 pb-16 sm:pt-10 sm:pb-24"
     >
-      <ol className="space-y-8 sm:space-y-10">
+      <ol className="space-y-9 sm:space-y-11">
         {experience.map((job, i) => (
           <Reveal key={`${job.company}-${job.role}-${job.dates}`} delay={i * 0.04}>
             <ExperienceJobCard job={job} />
