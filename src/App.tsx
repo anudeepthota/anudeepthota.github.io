@@ -31,25 +31,25 @@ export default function App() {
         aria-hidden
       />
       <div
-        className="pointer-events-none fixed inset-0 -z-10 bg-[length:48px_48px] bg-grid-fade opacity-[0.03]"
+        className="pointer-events-none fixed inset-0 -z-10 bg-[length:48px_48px] bg-grid-fade opacity-[0.022]"
         aria-hidden
       />
       <div className="pointer-events-none fixed inset-0 -z-[9] overflow-hidden" aria-hidden>
         <GradientDots
-          className="opacity-[0.035]"
+          className="opacity-[0.026]"
           dotSize={5}
           spacing={16}
           duration={48}
           colorCycleDuration={14}
         />
       </div>
-      <div className="pointer-events-none fixed inset-0 z-0" aria-hidden>
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.72]" aria-hidden>
         <SparklesCore
           id="site-sparkles"
           background="transparent"
           minSize={0.35}
           maxSize={1.15}
-          particleDensity={52}
+          particleDensity={48}
           className="h-full min-h-dvh w-full"
           particleColor="#e8eef8"
           speed={2.1}
@@ -66,7 +66,7 @@ export default function App() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 md:grid md:grid-cols-12 md:gap-x-8 md:items-start lg:gap-x-10">
           <div className="relative min-w-0 md:col-span-8">
             <div
-              className="pointer-events-none absolute inset-x-0 top-0 -z-[1] hidden min-h-[360px] bg-gradient-to-b from-card/50 via-card/[0.08] to-transparent md:block"
+              className="pointer-events-none absolute inset-x-0 top-0 -z-[1] min-h-[280px] bg-gradient-to-b from-card/45 via-card/[0.12] to-transparent md:min-h-[360px] md:from-card/50 md:via-card/[0.08]"
               aria-hidden
             />
             <Hero />

@@ -24,13 +24,13 @@ const ProjectCard = memo(function ProjectCard({ project, wide, delay, reduced }:
             : {
                 y: -4,
                 scale: 1.02,
-                transition: { duration: 0.22, ease: [0.22, 1, 0.36, 1] },
+                transition: { duration: 0.26, ease: [0.22, 1, 0.36, 1] },
               }
         }
       >
-        <Card className="h-full overflow-hidden rounded-2xl border-border/80 bg-card/55 shadow-card backdrop-blur-sm ring-2 ring-transparent transition-[border-color,box-shadow,ring-color] duration-200 hover:border-accent/35 hover:shadow-lg hover:shadow-accent/[0.08] hover:ring-accent/15">
-          <CardHeader className="space-y-3 pb-2 sm:pb-3">
-            <CardTitle className="text-xl font-semibold tracking-tight sm:text-2xl">{project.name}</CardTitle>
+        <Card className="h-full overflow-hidden rounded-2xl border-border/80 bg-card/55 shadow-card backdrop-blur-sm ring-2 ring-transparent transition-[border-color,box-shadow,ring-color] duration-[240ms] ease-out hover:border-accent/35 hover:shadow-xl hover:shadow-accent/[0.1] hover:ring-accent/15">
+          <CardHeader className="space-y-4 px-7 pb-1 pt-7 sm:px-8 sm:pb-2 sm:pt-8">
+            <CardTitle className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">{project.name}</CardTitle>
             <ul className="flex flex-wrap gap-2" aria-label="Technologies">
               {project.tags.map((t) => (
                 <li
@@ -42,22 +42,22 @@ const ProjectCard = memo(function ProjectCard({ project, wide, delay, reduced }:
               ))}
             </ul>
           </CardHeader>
-          <CardContent className="space-y-4 pb-7 sm:pb-8">
-            <div className="space-y-1.5">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">Problem</p>
-              <p className="max-w-prose text-sm leading-relaxed text-foreground/88 sm:text-[0.95rem]">
+          <CardContent className="space-y-6 px-7 pb-8 pt-2 sm:space-y-7 sm:px-8 sm:pb-9">
+            <div className="space-y-2">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground/90">Problem</p>
+              <p className="max-w-prose text-sm font-medium leading-relaxed text-foreground/82 sm:text-[0.95rem]">
                 {project.problem}
               </p>
             </div>
-            <div className="space-y-1.5">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground">Solution</p>
-              <p className="max-w-prose text-sm leading-relaxed text-foreground/88 sm:text-[0.95rem]">
+            <div className="space-y-2">
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-muted-foreground/90">Solution</p>
+              <p className="max-w-prose text-sm font-medium leading-relaxed text-foreground/82 sm:text-[0.95rem]">
                 {project.solution}
               </p>
             </div>
-            <div className="space-y-1.5 rounded-xl border border-accent/15 bg-accent/[0.06] p-3.5">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent">Impact</p>
-              <p className="max-w-prose text-sm font-medium leading-relaxed text-foreground/90 sm:text-[0.95rem]">
+            <div className="space-y-2.5 rounded-xl border border-accent/30 bg-accent/[0.11] p-4 shadow-inner shadow-accent/[0.04] sm:p-5">
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent">Impact</p>
+              <p className="max-w-prose text-sm font-semibold leading-relaxed text-foreground sm:text-[0.95rem]">
                 {project.impact}
               </p>
             </div>
@@ -78,8 +78,9 @@ export function Projects() {
       title="Projects"
       description="Problem → solution → impact on every card. Hover for depth; details expand only when you need them elsewhere."
       containWidth={false}
+      className="pb-4 sm:pb-6"
     >
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+      <div className="grid gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8">
         {projects.map((project, i) => (
           <ProjectCard
             key={project.name}
