@@ -1,6 +1,6 @@
 import { Reveal } from '@/components/Reveal'
 import { Section } from '@/components/Section'
-import { education } from '@/data/site'
+import { education, graduateAppointments } from '@/data/site'
 
 export function About() {
   return (
@@ -79,6 +79,21 @@ export function About() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-6 border-t border-border/60 pt-5">
+                <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                  During my M.S. (Texas State)
+                </h4>
+                <ul className="mt-3 space-y-3 text-sm text-muted-foreground">
+                  {graduateAppointments.map((g) => (
+                    <li key={`${g.role}-${g.dates}`}>
+                      <p className="font-medium text-foreground/95">{g.role}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {g.org} · {g.location} · {g.dates}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </Reveal>

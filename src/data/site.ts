@@ -1,6 +1,7 @@
 export const person = {
   name: 'Anudeep Thota',
-  title: 'Software Engineer in Test',
+  /** Matches LinkedIn headline (SDET) and full role at Q2 */
+  title: 'Software Development Engineer in Test (SDET)',
   /** One line for visitors scanning the hero */
   tagline:
     'I design and ship automation for commercial banking at Q2—UI, API, and mobile—with ownership of regression across linked systems and modern CI/CD on AWS.',
@@ -22,14 +23,30 @@ export const education = [
   {
     school: 'Texas State University',
     location: 'San Marcos, TX, USA',
-    degree: 'Master of Science in Computer Science',
-    dates: 'June 2019 – May 2021',
+    degree: "Master's degree, Computer Science",
+    dates: '2019 – 2021',
   },
   {
-    school: 'Jawaharlal Nehru Technological University',
-    location: 'India',
-    degree: "Bachelor's in Electrical and Electronics Engineering",
-    dates: 'Aug 2010 – May 2014',
+    school: 'Siddharth Institute of Engineering & Technology',
+    location: 'Puttur, India',
+    degree: 'Bachelor of Technology (BTech), Electrical and Electronics Engineering',
+    dates: '2010 – 2014',
+  },
+] as const
+
+/** LinkedIn / academic—same era as Texas State M.S.; kept near Education, not the main timeline */
+export const graduateAppointments = [
+  {
+    role: 'Graduate Instructional Assistant',
+    org: 'Texas State University',
+    location: 'San Marcos, TX',
+    dates: 'Jan 2021 – Jun 2021',
+  },
+  {
+    role: 'Graduate Assistant',
+    org: 'Texas State University',
+    location: 'San Marcos, TX',
+    dates: 'Jul 2019 – May 2020',
   },
 ] as const
 
@@ -61,7 +78,7 @@ export const skillGroups = [
   },
   {
     title: 'Languages & data',
-    items: ['Python', 'Java', 'Groovy', 'SQL', 'YAML', 'HCL'],
+    items: ['Python', 'Java', 'Groovy', 'SQL', 'YAML', 'HCL', 'FastAPI'],
   },
   {
     title: 'Quality & ways of working',
@@ -107,7 +124,7 @@ export const experience: ExperienceEntry[] = [
   {
     company: 'Q2 Software, Inc.',
     location: 'Austin, TX, USA',
-    role: 'Software Engineer in Test (Commercial Otters, Quality Enablement)',
+    role: 'Software Development Engineer in Test — Commercial Otters, Quality Enablement',
     dates: 'June 2021 – Present',
     blurb:
       'Hands-on automation for commercial digital banking, regression across interconnected platforms, and enablement for teams shipping on AWS-backed QA stacks.',
@@ -153,7 +170,7 @@ export const experience: ExperienceEntry[] = [
   {
     company: 'Cognizant Technology Solutions',
     location: 'Coimbatore, India',
-    role: 'Programmer Analyst (Test Automation)',
+    role: 'Test Analyst',
     dates: 'Mar 2015 – Aug 2016',
     blurb: 'ACA-compliant healthcare billing automation with strong API and regression coverage.',
     highlights: [
@@ -165,7 +182,7 @@ export const experience: ExperienceEntry[] = [
   {
     company: 'Infosys Technologies',
     location: 'Mysuru, India',
-    role: 'Intern Trainee',
+    role: 'Software Intern',
     dates: 'Dec 2014 – Mar 2015',
     blurb: 'Foundational training in Java, PL/SQL, QA process, and Agile exposure.',
     highlights: [

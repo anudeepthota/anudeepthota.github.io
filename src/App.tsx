@@ -70,8 +70,8 @@ export default function App() {
       </main>
       <footer className="relative z-10 border-t border-border/80 py-12 text-center text-sm text-muted-foreground">
         <p className="mx-auto max-w-md leading-relaxed">
-          © {new Date().getFullYear()} Anudeep Thota. React, TypeScript, Tailwind CSS, and Framer
-          Motion on GitHub Pages.
+          © {new Date().getFullYear()} Anudeep Thota. Personal site: React, TypeScript, Tailwind CSS,
+          Framer Motion, GitHub Pages.
         </p>
       </footer>
     </div>
