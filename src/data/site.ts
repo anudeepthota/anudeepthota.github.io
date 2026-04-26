@@ -10,7 +10,7 @@ export const person = {
   title: 'Software Development Engineer in Test (SDET)',
   /** Hero summary; `\n\n` renders as paragraph breaks in Hero. */
   valueProposition:
-    'I own enterprise UI automation on Selenium and Page Objects, REST/API validation (ReadyAPI mocks, Postman), and Appium—parallelized on Dockerized Selenium Grid when throughput matters. Jenkins and GitLab CI orchestrate suites across AWS-backed QA; Nomad migrations and HCL-driven stack work keep the same checks aligned from dev through prod-like environments.\n\nCo-architect on LLM-assisted test generation—embeddings and models—so requirements and repository context become executable CI checks earlier in the cycle, not at the last gate.\n\nOutcome: deeper regression across interconnected systems, reproducible pre-prod evidence, and release cadence without trading away coverage.',
+    'I own UI, API, and mobile automation from harness through release gate—built for coupled systems and the path code takes to production.\n\nCI/CD and cloud-resident QA hold one regression contract across promotion tiers from dev through prod-like.\n\nAI-assisted synthesis shortens requirements-to-runnable coverage: faster merge cadence, regression depth that scales, fewer defects surfacing after freeze.',
   /** Scan-first: context lines + standalone metric lines (Mast-era outcomes). */
   impactBullets: [
     { text: 'Scaled regression across multi-system commercial banking.', variant: 'body' },
