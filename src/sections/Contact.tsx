@@ -19,7 +19,6 @@ export function Contact() {
             <div className="space-y-2">
               <p className="text-xl font-semibold tracking-tight text-foreground">{person.name}</p>
               <p className="text-sm text-muted-foreground">{person.title}</p>
-              <p className="text-sm text-muted-foreground">{person.location}</p>
             </div>
             <p className="text-base font-medium leading-relaxed text-foreground/90 sm:text-lg">
               Open to SDET, QA platform, and automation-architecture roles. If you want faster, safer

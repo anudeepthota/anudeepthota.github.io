@@ -6,8 +6,8 @@ export type HeroImpactLine = {
 
 export const person = {
   name: 'Anudeep Thota',
-  /** Matches LinkedIn headline (SDET) and full role at Q2 */
-  title: 'Software Development Engineer in Test (SDET)',
+  /** Role line under name in hero (also used in Contact). */
+  title: 'Software Development Engineer in Test (SDET) @ Q2 - Austin, TX',
   /** Hero summary; `\n\n` renders as paragraph breaks in Hero. */
   valueProposition:
     'I own UI, API, and mobile automation from harness through release gate—built for coupled systems and the path code takes to production.\n\nCI/CD and cloud-resident QA hold one regression contract across promotion tiers from dev through prod-like.\n\nAI-assisted synthesis shortens requirements-to-runnable coverage: faster merge cadence, regression depth that scales, fewer defects surfacing after freeze.',
@@ -18,8 +18,8 @@ export const person = {
     { text: '**~40% manual reduction**', variant: 'metric' },
     { text: 'CI/CD validation from dev to prod-like QA stacks.', variant: 'body' },
   ] as const satisfies readonly HeroImpactLine[],
-  /** One-line credibility (replaces long technical hero paragraphs) */
-  credibilityLine: 'SDET at Q2 · Commercial digital banking · Austin, TX',
+  /** Optional hero line below impact bullets; empty when role line already carries org + location. */
+  credibilityLine: '',
   phone: '+1 (469) 834-7396',
   email: 'info2anudeepthota@gmail.com',
   linkedin: 'https://www.linkedin.com/in/anudeepthota/',
