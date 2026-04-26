@@ -11,8 +11,8 @@ export function Certifications() {
       description="Transparent note so nothing here is invented filler."
     >
       <Reveal>
-        <div className="max-w-3xl rounded-xl border border-border bg-card p-8 shadow-sm">
-          <p className="text-base leading-relaxed text-muted-foreground">
+        <div className="max-w-3xl rounded-2xl border border-border/80 bg-card/50 p-8 shadow-card backdrop-blur-sm sm:p-10">
+          <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
             {certificationsNote.body}
           </p>
         </div>

@@ -5,8 +5,20 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Quicksand', 'system-ui', 'sans-serif'],
-        display: ['Caveat', 'cursive'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'display-sm': ['2.25rem', { lineHeight: '1.15', letterSpacing: '-0.03em' }],
+        display: ['3rem', { lineHeight: '1.1', letterSpacing: '-0.035em' }],
+        'display-lg': ['3.75rem', { lineHeight: '1.05', letterSpacing: '-0.04em' }],
+      },
+      boxShadow: {
+        glow: '0 0 0 1px hsl(var(--border)), 0 24px 80px -32px hsl(217 91% 60% / 0.15)',
+        card: '0 0 0 1px hsl(var(--border) / 0.8), 0 18px 50px -24px rgb(0 0 0 / 0.55)',
+      },
+      backgroundImage: {
+        'grid-fade':
+          'linear-gradient(to right, hsl(var(--border) / 0.35) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--border) / 0.35) 1px, transparent 1px)',
       },
       colors: {
         border: 'hsl(var(--border))',

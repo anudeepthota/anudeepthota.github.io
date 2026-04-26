@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowDown, Download, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { GlowingShadow } from '@/components/ui/glowing-shadow'
 import { person } from '@/data/site'
 
 export function Hero() {
@@ -11,16 +10,16 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-24 pb-16 sm:pt-28"
+      className="relative flex min-h-[100dvh] items-center overflow-hidden pt-24 pb-20 sm:pt-28 sm:pb-24"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,hsl(var(--accent)/0.12),transparent)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_0%_40%,hsl(217_91%_60%/0.12),transparent_55%)]"
         aria-hidden
       />
-      <div className="relative mx-auto grid w-full max-w-5xl gap-12 px-4 sm:grid-cols-[minmax(0,1fr)_minmax(0,420px)] sm:items-center sm:gap-10 sm:px-6">
+      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-14 px-4 sm:gap-12 sm:px-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
         <div>
           <motion.p
-            className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-accent"
+            className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-accent"
             initial={reduced ? undefined : { opacity: 0, y: 8 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ ...transition, delay: reduced ? 0 : 0.05 }}
@@ -28,42 +27,42 @@ export function Hero() {
             {person.location}
           </motion.p>
           <motion.h1
-            className="font-display text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl"
-            initial={reduced ? undefined : { opacity: 0, y: 16 }}
+            className="text-display font-semibold tracking-tight text-foreground sm:text-display-lg"
+            initial={reduced ? undefined : { opacity: 0, y: 18 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduced ? 0 : 0.12 }}
+            transition={{ ...transition, delay: reduced ? 0 : 0.1 }}
           >
             {person.name}
           </motion.h1>
           <motion.p
-            className="mt-3 text-lg font-medium text-foreground/90 sm:text-xl"
+            className="mt-4 text-lg font-medium text-foreground/85 sm:text-xl"
             initial={reduced ? undefined : { opacity: 0, y: 16 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduced ? 0 : 0.18 }}
+            transition={{ ...transition, delay: reduced ? 0 : 0.16 }}
           >
             {person.title}
           </motion.p>
           <motion.p
-            className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground"
+            className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-[1.05rem]"
             initial={reduced ? undefined : { opacity: 0, y: 16 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduced ? 0 : 0.24 }}
+            transition={{ ...transition, delay: reduced ? 0 : 0.22 }}
           >
             {person.tagline}
           </motion.p>
           <motion.div
-            className="mt-8 flex flex-wrap gap-3"
+            className="mt-10 flex flex-wrap gap-3"
             initial={reduced ? undefined : { opacity: 0, y: 12 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
-            transition={{ ...transition, delay: reduced ? 0 : 0.32 }}
+            transition={{ ...transition, delay: reduced ? 0 : 0.28 }}
           >
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="rounded-xl shadow-glow">
               <a href="#contact">
                 <Mail className="size-4" aria-hidden />
                 Contact
               </a>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" className="rounded-xl" asChild>
               <a href="/resume.pdf" download>
                 <Download className="size-4" aria-hidden />
                 Résumé PDF
@@ -72,10 +71,10 @@ export function Hero() {
           </motion.div>
           <motion.a
             href="#about"
-            className="mt-14 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
+            className="mt-16 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-accent"
             initial={reduced ? undefined : { opacity: 0 }}
             animate={reduced ? undefined : { opacity: 1 }}
-            transition={{ delay: reduced ? 0 : 0.55, duration: reduced ? 0 : 0.4 }}
+            transition={{ delay: reduced ? 0 : 0.5, duration: reduced ? 0 : 0.4 }}
           >
             <ArrowDown className="size-4" aria-hidden />
             About &amp; experience
@@ -83,22 +82,30 @@ export function Hero() {
         </div>
 
         <motion.div
-          className="flex justify-center sm:justify-end"
-          initial={reduced ? undefined : { opacity: 0, scale: 0.96 }}
-          animate={reduced ? undefined : { opacity: 1, scale: 1 }}
-          transition={{ ...transition, delay: reduced ? 0 : 0.2 }}
+          className="relative mx-auto w-full max-w-[400px] lg:mx-0 lg:max-w-none lg:justify-self-end"
+          initial={reduced ? undefined : { opacity: 0, y: 24 }}
+          animate={reduced ? undefined : { opacity: 1, y: 0 }}
+          transition={{ ...transition, delay: reduced ? 0 : 0.14 }}
         >
-          <GlowingShadow className="max-w-[min(100%,420px)] scale-[0.92] sm:scale-100">
-            <img
-              src="/profile.jpg"
-              alt="Portrait of Anudeep Thota"
-              width={480}
-              height={640}
-              className="relative z-[1] max-h-[min(340px,48vh)] w-auto max-w-full rounded-xl object-cover object-top shadow-2xl"
-              decoding="async"
-              fetchPriority="high"
-            />
-          </GlowingShadow>
+          <div
+            className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-accent/20 via-transparent to-violet-500/10 blur-2xl"
+            aria-hidden
+          />
+          <figure className="relative">
+            <div className="rounded-2xl bg-gradient-to-br from-white/20 via-white/[0.04] to-accent/25 p-px shadow-card">
+              <div className="overflow-hidden rounded-2xl bg-card ring-1 ring-white/[0.06]">
+                <img
+                  src="/profile.jpg"
+                  alt="Portrait of Anudeep Thota"
+                  width={560}
+                  height={700}
+                  className="aspect-[4/5] w-full object-cover object-top"
+                  decoding="async"
+                  fetchPriority="high"
+                />
+              </div>
+            </div>
+          </figure>
         </motion.div>
       </div>
     </section>

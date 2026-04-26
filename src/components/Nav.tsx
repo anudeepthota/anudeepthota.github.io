@@ -7,24 +7,24 @@ export function Nav() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/90 shadow-sm backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/75 shadow-card backdrop-blur-xl supports-[backdrop-filter]:bg-background/55">
       <nav
-        className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6"
+        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6"
         aria-label="Primary"
       >
         <a
           href="#hero"
-          className="font-display text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
+          className="text-sm font-bold uppercase tracking-[0.35em] text-foreground/90 transition-opacity hover:opacity-80"
         >
           AT
         </a>
 
-        <ul className="hidden items-center gap-0.5 md:flex">
+        <ul className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors duration-200 ease-out hover:bg-foreground/5 hover:text-foreground"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors duration-200 ease-out hover:bg-white/[0.04] hover:text-foreground"
               >
                 {link.label}
               </a>
@@ -34,7 +34,7 @@ export function Nav() {
 
         <button
           type="button"
-          className="inline-flex rounded-md p-2 text-foreground transition-colors hover:bg-foreground/5 md:hidden"
+          className="inline-flex rounded-lg p-2 text-foreground transition-colors hover:bg-white/[0.06] md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
@@ -47,7 +47,7 @@ export function Nav() {
       <div
         id="mobile-nav"
         className={cn(
-          'border-t border-border bg-background md:hidden',
+          'border-t border-border/80 bg-background/95 backdrop-blur-xl md:hidden',
           open ? 'block' : 'hidden',
         )}
       >
@@ -56,7 +56,7 @@ export function Nav() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5"
+                className="block rounded-lg px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-white/[0.05]"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
