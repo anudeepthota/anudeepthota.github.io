@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AT favicons — 10 font styles</title>
+    <style>
+      :root {
+        --bg: #0d1016;
+        --card: #141922;
+        --border: rgba(255, 255, 255, 0.08);
+        --muted: rgba(232, 238, 248, 0.55);
+        --text: #e8eef8;
+        --accent: hsl(217 72% 52%);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        padding: 1.75rem 1rem 3rem;
+      }
+      h1 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0 0 0.35rem;
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 0.88rem;
+        max-width: 48rem;
+        margin: 0 0 1.5rem;
+        line-height: 1.55;
+      }
+      .sub code {
+        color: var(--accent);
+        font-size: 0.85em;
+      }
+      table {
+        width: 100%;
+        max-width: 56rem;
+        border-collapse: collapse;
+        font-size: 0.82rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--border);
+        padding: 0.65rem 0.75rem;
+        text-align: left;
+        vertical-align: middle;
+      }
+      th {
+        background: var(--card);
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      tr:nth-child(even) td {
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .num {
+        font-weight: 700;
+        color: var(--accent);
+        width: 2.5rem;
+        text-align: center;
+      }
+      .name {
+        font-weight: 600;
+        color: var(--text);
+      }
+      .stack {
+        color: var(--muted);
+        font-size: 0.72rem;
+        line-height: 1.45;
+        max-width: 22rem;
+      }
+      .prevs {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-end;
+        flex-wrap: wrap;
+      }
+      .p {
+        text-align: center;
+      }
+      .p span {
+        display: block;
+        font-size: 0.58rem;
+        color: var(--muted);
+        margin-top: 0.25rem;
+        letter-spacing: 0.04em;
+      }
+      .tile {
+        background: repeating-conic-gradient(#1a2030 0% 25%, #12161f 0% 50%) 50% / 8px 8px;
+        border-radius: 6px;
+        padding: 8px;
+        border: 1px solid var(--border);
+        width: fit-content;
+        margin: 0 auto;
+      }
+      .tile img {
+        display: block;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+      }
+      a {
+        color: var(--accent);
+        font-size: 0.72rem;
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>“AT” favicons — 10 font styles</h1>
+    <p class="sub">
+      Each file uses a different <strong>system font stack</strong> (no webfonts—works offline, small file). Actual letters may
+      match the first installed font on your OS. Pick a row number (<strong>1–10</strong>) and we’ll set it as
+      <code>/favicon.svg</code> (optionally converting to paths for identical rendering everywhere). Preview with
+      <code>npm run dev</code> → <code>/favicon-prototypes/at-fonts/index.html</code>
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Label</th>
+          <th>Font stack (first match wins)</th>
+          <th>16 / 32 / 48</th>
+          <th>File</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">1</td>
+          <td class="name">System UI</td>
+          <td class="stack">ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI…</td>
+          <td>
+            <div class="prevs">
+              <div class="p"><div class="tile"><img src="./at-01-system.svg" width="16" height="16" alt="" /></div><span>16</span></div>
+              <div class="p"><div class="tile"><img src="./at-01-system.svg" width="32" height="32" alt="" /></div><span>32</span></div>
+              <div class="p"><div class="tile"><img src="./at-01-system.svg" width="48" height="48" alt="" /></div><span>48</span></div>
+            </div>
+          </td>
+          <td><a href="./at-01-system.svg">at-01-system.svg</a></td>
+        </tr>
+        <tr>
+          <td class="num">2</td>
+          <td class="name">Georgia / Times serif</td>
+          <td class="stack">Georgia, Times New Roman, Times…</td>
+          <td>
+            <div class="prevs">
+              <div class="p"><div class="tile"><img src="./at-02-georgia-serif.svg" width="16" height="16" alt="" /></div><span>16</span></div>
+              <div class="p"><div class="tile"><img src="./at-02-georgia-serif.svg" width="32" height="32" alt="" /></div><span>32</span></div>
+              <div class="p"><div class="tile"><img src="./at-02-georgia-serif.svg" width="48" height="48" alt="" /></div><span>48</span></div>
+            </div>
+          </td>
+          <td><a href="./at-02-georgia-serif.svg">at-02-georgia-serif.svg</a></td>
+        </tr>
+        <tr>
+          <td class="num">3</td>
+          <td class="name">Courier mono</td>
+          <td class="stack">Courier New, Courier, ui-monospace…</td>
+          <td>
+            <div class="prevs">
+              <div class="p"><div class="tile"><img src="./at-03-courier-mono.svg" width="16" height="16" alt="" /></div><span>16</span></div>
+              <div class="p"><div class="tile"><img src="./at-03-courier-mono.svg" width="32" height="32" alt="" /></div><span>32</span></div>
+              <div class="p"><div class="tile"><img src="./at-03-courier-mono.svg" width="48" height="48" alt="" /></div><span>48</span></div>
+            </div>
+          </td>
+          <td><a href="./at-03-courier-mono.svg">at-03-courier-mono.svg</a></td>
+        </tr>
+        <tr>
+          <td class="num">4</td>
+          <td class="name">Impact condensed</td>
+          <td class="stack">Impact, Haettenschweiler, Arial Narrow Bold…</td>
+          <td>
+            <div class="prevs">
+              <div class="p"><div class="tile"><img src="./at-04-impact-condensed.svg" width="16" height="16" alt="" /></div><span>16</span></div>
+              <div class="p"><div class="tile"><img src="./at-04-impact-condensed.svg" width="32" height="32" alt="" /></div><span>32</span></div>
+              <div class="p"><div class="tile"><img src="./at-04-impact-condensed.svg" width="48" height="48" alt="" /></div><span>48</span></div>
+            </div>
+          </td>
+          <td><a href="./at-04-impact-condensed.svg">at-04-impact-condensed.svg</a></td>
+        </tr>
+        <tr>
+          <td class="num">5</td>
+          <td class="name">Palatino book serif</td>
+          <td class="stack">Palatino, Palatino Linotype, Book Antiqua…</td>
+          <td>
+            <div class="prevs">
+              <div class="p"><div class="tile"><img src="./at-05-palatino.svg" width="16" height="16" alt="" /></div><span>16</span></div>
+              <div class="p"><div class="tile"><img src="./at-05-palatino.svg" width="32" height="32" alt="" /></div><span>32</span></div>
+              <div class="p"><div class="tile"><img src="./at-05-palatino.svg" width="48" height="48" alt="" /></div><span>48</span></div>
+            </div>
+          </td>
+          <td><a href="./at-05-palatino.svg">at-05-palatino.svg</a></td>
+        </tr>
+        <tr>
+          <td class="num">6</td>
+          <td class="name">Verdana wide</td>
+          <td class="stack">Verdana, Geneva, DejaVu Sans…</td>
+          <td>
+            <div class="prevs">
+              <div class="p"><div class="tile"><img src="./at-06-verdana-wide.svg" width="16" height="16" alt="" /></div><span>16</span></div>
+              <div class="p"><div class="tile"><img src="./at-06-verdana-wide.svg" width="32" height="32" alt="" /></div><span>32</span></div>
+              <div class="p"><div class="tile"><img src="./at-06-verdana-wide.svg" width="48" height="48" alt="" /></div><span>48</span></div>
+            </div>
+          </td>
+          <td><a href="./at-06-verdana-wide.svg">at-06-verdana-wide.svg</a></td>
+        </tr>
+        <tr>
+          <td class="num">7</td>
+          <td class="name">Trebuchet</td>
+          <td class="stack">Trebuchet MS, Lucida Grande, Lucida Sans Unicode…</td>
+          <td>
+            <div class="prevs">
+              <div class="p"><div class="tile"><img src="./at-07-trebuchet.svg" width="16" height="16" alt="" /></div><span>16</span></div>
+              <div class="p"><div class="tile"><img src="./at-07-trebuchet.svg" width="32" height="32" alt="" /></div><span>32</span></div>
+              <div class="p"><div class="tile"><img src="./at-07-trebuchet.svg" width="48" height="48" alt="" /></div><span>48</span></div>
+            </div>
+          </td>
+          <td><a href="./at-07-trebuchet.svg">at-07-trebuchet.svg</a></td>
+        </tr>
+        <tr>
+          <td class="num">8</td>
+          <td class="name">Gill / Calibri lane</td>
+          <td class="stack">Gill Sans, Gill Sans MT, Calibri, Trebuchet MS…</td>
+          <td>
+            <div class="prevs">
+              <div class="p"><div class="tile"><img src="./at-08-gill-humanist.svg" width="16" height="16" alt="" /></div><span>16</span></div>
+              <div class="p"><div class="tile"><img src="./at-08-gill-humanist.svg" width="32" height="32" alt="" /></div><span>32</span></div>
+              <div class="p"><div class="tile"><img src="./at-08-gill-humanist.svg" width="48" height="48" alt="" /></div><span>48</span></div>
+            </div>
+          </td>
+          <td><a href="./at-08-gill-humanist.svg">at-08-gill-humanist.svg</a></td>
+        </tr>
+        <tr>
+          <td class="num">9</td>
+          <td class="name">Menlo / code</td>
+          <td class="stack">Menlo, Monaco, Consolas, Liberation Mono…</td>
+          <td>
+            <div class="prevs">
+              <div class="p"><div class="tile"><img src="./at-09-menlo-code.svg" width="16" height="16" alt="" /></div><span>16</span></div>
+              <div class="p"><div class="tile"><img src="./at-09-menlo-code.svg" width="32" height="32" alt="" /></div><span>32</span></div>
+              <div class="p"><div class="tile"><img src="./at-09-menlo-code.svg" width="48" height="48" alt="" /></div><span>48</span></div>
+            </div>
+          </td>
+          <td><a href="./at-09-menlo-code.svg">at-09-menlo-code.svg</a></td>
+        </tr>
+        <tr>
+          <td class="num">10</td>
+          <td class="name">Times traditional</td>
+          <td class="stack">Times New Roman, Times, Nimbus Roman…</td>
+          <td>
+            <div class="prevs">
+              <div class="p"><div class="tile"><img src="./at-10-times-traditional.svg" width="16" height="16" alt="" /></div><span>16</span></div>
+              <div class="p"><div class="tile"><img src="./at-10-times-traditional.svg" width="32" height="32" alt="" /></div><span>32</span></div>
+              <div class="p"><div class="tile"><img src="./at-10-times-traditional.svg" width="48" height="48" alt="" /></div><span>48</span></div>
+            </div>
+          </td>
+          <td><a href="./at-10-times-traditional.svg">at-10-times-traditional.svg</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

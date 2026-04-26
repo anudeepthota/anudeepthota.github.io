@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favicon prototypes — pick one</title>
+    <style>
+      :root {
+        --bg: #0d1016;
+        --card: #141922;
+        --border: rgba(255, 255, 255, 0.08);
+        --muted: rgba(232, 238, 248, 0.55);
+        --text: #e8eef8;
+        --accent: hsl(217 72% 52%);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        padding: 2rem 1.25rem 4rem;
+        line-height: 1.5;
+      }
+      h1 {
+        font-size: 1.35rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin: 0 0 0.35rem;
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 0.9rem;
+        max-width: 42rem;
+        margin-bottom: 2rem;
+      }
+      .sub code {
+        color: var(--accent);
+        font-size: 0.85em;
+      }
+      .grid {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      }
+      article {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.1rem 1.15rem 1.25rem;
+        background: var(--card);
+      }
+      article h2 {
+        margin: 0 0 0.35rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--accent);
+      }
+      .label {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--text);
+      }
+      .sizes {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 1rem 1.5rem;
+        margin: 1rem 0;
+      }
+      .size {
+        text-align: center;
+      }
+      .size span {
+        display: block;
+        font-size: 0.65rem;
+        color: var(--muted);
+        margin-top: 0.35rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .tile {
+        margin: 0 auto;
+        background: repeating-conic-gradient(#1a2030 0% 25%, #12161f 0% 50%) 50% / 8px 8px;
+        border-radius: 8px;
+        padding: 10px;
+        width: fit-content;
+        border: 1px solid var(--border);
+      }
+      .tile img {
+        display: block;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+      }
+      .desc {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin: 0.5rem 0 0;
+      }
+      a.file {
+        font-size: 0.78rem;
+        color: var(--accent);
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Favicon prototypes</h1>
+    <p class="sub">
+      Compare at real tab sizes. After you pick a letter (<strong>A</strong>–<strong>F</strong>), say which one and we’ll promote it to
+      <code>/favicon.svg</code>. Open this file via your dev server (recommended) or directly from disk.
+      <br /><br />
+      <strong>“AT” monogram — 10 font styles:</strong>
+      <a href="./at-fonts/index.html" style="color: var(--accent)">favicon-prototypes/at-fonts/index.html</a>
+    </p>
+
+    <div class="grid">
+      <article id="a">
+        <h2>Option A</h2>
+        <div class="label">“AT” monogram — dark tile</div>
+        <div class="sizes">
+          <div class="size">
+            <div class="tile"><img src="./a-at-tile.svg" alt="" width="16" height="16" /></div>
+            <span>16 × 16</span>
+          </div>
+          <div class="size">
+            <div class="tile"><img src="./a-at-tile.svg" alt="" width="32" height="32" /></div>
+            <span>32 × 32</span>
+          </div>
+          <div class="size">
+            <div class="tile"><img src="./a-at-tile.svg" alt="" width="48" height="48" /></div>
+            <span>48 × 48</span>
+          </div>
+        </div>
+        <p class="desc">Matches your nav initials; strongest personal brand at small sizes.</p>
+        <a class="file" href="./a-at-tile.svg">a-at-tile.svg</a>
+      </article>
+
+      <article id="b">
+        <h2>Option B</h2>
+        <div class="label">Single “A” — dark tile</div>
+        <div class="sizes">
+          <div class="size">
+            <div class="tile"><img src="./b-a-only.svg" alt="" width="16" height="16" /></div>
+            <span>16 × 16</span>
+          </div>
+          <div class="size">
+            <div class="tile"><img src="./b-a-only.svg" alt="" width="32" height="32" /></div>
+            <span>32 × 32</span>
+          </div>
+          <div class="size">
+            <div class="tile"><img src="./b-a-only.svg" alt="" width="48" height="48" /></div>
+            <span>48 × 48</span>
+          </div>
+        </div>
+        <p class="desc">Simplest mark; reads clearly when the tab strip is crowded.</p>
+        <a class="file" href="./b-a-only.svg">b-a-only.svg</a>
+      </article>
+
+      <article id="c">
+        <h2>Option C</h2>
+        <div class="label">Check in ring — “quality gate”</div>
+        <div class="sizes">
+          <div class="size">
+            <div class="tile"><img src="./c-check-gate.svg" alt="" width="16" height="16" /></div>
+            <span>16 × 16</span>
+          </div>
+          <div class="size">
+            <div class="tile"><img src="./c-check-gate.svg" alt="" width="32" height="32" /></div>
+            <span>32 × 32</span>
+          </div>
+          <div class="size">
+            <div class="tile"><img src="./c-check-gate.svg" alt="" width="48" height="48" /></div>
+            <span>48 × 48</span>
+          </div>
+        </div>
+        <p class="desc">Signals SDET / release validation; check detail may soften at 16px.</p>
+        <a class="file" href="./c-check-gate.svg">c-check-gate.svg</a>
+      </article>
+
+      <article id="d">
+        <h2>Option D</h2>
+        <div class="label">Three nodes — “pipeline / systems”</div>
+        <div class="sizes">
+          <div class="size">
+            <div class="tile"><img src="./d-pipeline.svg" alt="" width="16" height="16" /></div>
+            <span>16 × 16</span>
+          </div>
+          <div class="size">
+            <div class="tile"><img src="./d-pipeline.svg" alt="" width="32" height="32" /></div>
+            <span>32 × 32</span>
+          </div>
+          <div class="size">
+            <div class="tile"><img src="./d-pipeline.svg" alt="" width="48" height="48" /></div>
+            <span>48 × 48</span>
+          </div>
+        </div>
+        <p class="desc">Abstract CI / multi-system vibe; less “personal” than A or B.</p>
+        <a class="file" href="./d-pipeline.svg">d-pipeline.svg</a>
+      </article>
+
+      <article id="e">
+        <h2>Option E</h2>
+        <div class="label">Minimal spark — your accent, no purple</div>
+        <div class="sizes">
+          <div class="size">
+            <div class="tile"><img src="./e-spark-minimal.svg" alt="" width="16" height="16" /></div>
+            <span>16 × 16</span>
+          </div>
+          <div class="size">
+            <div class="tile"><img src="./e-spark-minimal.svg" alt="" width="32" height="32" /></div>
+            <span>32 × 32</span>
+          </div>
+          <div class="size">
+            <div class="tile"><img src="./e-spark-minimal.svg" alt="" width="48" height="48" /></div>
+            <span>48 × 48</span>
+          </div>
+        </div>
+        <p class="desc">Evokes “spark / AI” without the busy gradients of the current favicon.</p>
+        <a class="file" href="./e-spark-minimal.svg">e-spark-minimal.svg</a>
+      </article>
+
+      <article id="f">
+        <h2>Option F</h2>
+        <div class="label">“AT” + thin accent border</div>
+        <div class="sizes">
+          <div class="size">
+            <div class="tile"><img src="./f-at-outline.svg" alt="" width="16" height="16" /></div>
+            <span>16 × 16</span>
+          </div>
+          <div class="size">
+            <div class="tile"><img src="./f-at-outline.svg" alt="" width="32" height="32" /></div>
+            <span>32 × 32</span>
+          </div>
+          <div class="size">
+            <div class="tile"><img src="./f-at-outline.svg" alt="" width="48" height="48" /></div>
+            <span>48 × 48</span>
+          </div>
+        </div>
+        <p class="desc">Slightly more “card UI” like your site chrome; border helps on light browser chrome.</p>
+        <a class="file" href="./f-at-outline.svg">f-at-outline.svg</a>
+      </article>
+    </div>
+  </body>
+</html>
